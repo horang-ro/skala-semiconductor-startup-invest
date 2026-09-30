@@ -1,8 +1,11 @@
 """외부 정보 검색 도구 (구글 뉴스 RSS, 비교기업 재무 지표)."""
 
 import json
+import re
 import statistics
+import time
 from datetime import date
+from functools import lru_cache
 from urllib.parse import quote
 
 import feedparser
@@ -16,13 +19,14 @@ from config import (
 )
 
 
-def search_news(query: str, max_results: int = NEWS_MAX_RESULTS) -> list[dict]:
-    """구글 뉴스 RSS로 뉴스를 검색합니다."""
-    url = f"https://news.google.com/rss/search?q={quote(query)}&hl=ko&gl=KR&ceid=KR:ko"
-    feed = feedparser.parse(url)
+def search_news(query: str, max_results: int = NEWS_MAX_RESULTS, lang: str = "ko") -> list[dict]:
+    """구글 뉴스 RSS로 뉴스를 검색합니다. lang="en"이면 영문 뉴스를 검색합니다."""
+    locale = "hl=en-US&gl=US&ceid=US:en" if lang == "en" else "hl=ko&gl=KR&ceid=KR:ko"
+    feed = feedparser.parse(f"https://news.google.com/rss/search?q={quote(query)}&{locale}")
     return [
         {
             "title": entry.get("title", ""),
+            "summary": re.sub(r"<[^>]+>", " ", entry.get("summary", ""))[:300],
             "url": entry.get("link", ""),
             "published": entry.get("published", ""),
             "source": entry.get("source", {}).get("title", ""),
@@ -34,12 +38,13 @@ def search_news(query: str, max_results: int = NEWS_MAX_RESULTS) -> list[dict]:
 def format_news(news: list[dict]) -> str:
     """뉴스 검색 결과를 XML 형식의 문자열로 포매팅합니다."""
     return "\n".join(
-        f"<news><title>{n['title']}</title><published>{n['published']}</published>"
-        f"<source>{n['url']}</source></news>"
+        f"<news><title>{n['title']}</title><summary>{n['summary']}</summary>"
+        f"<published>{n['published']}</published><source>{n['url']}</source></news>"
         for n in news
     )
 
 
+@lru_cache(maxsize=1)
 def get_usd_krw() -> float:
     """원/달러 환율을 조회합니다. 실패하면 기본값을 사용합니다."""
     try:
@@ -63,9 +68,14 @@ def get_peer_multiples() -> dict:
 
     peers = []
     for ticker in PEER_TICKERS:
-        try:
-            info = yf.Ticker(ticker).info
-        except Exception:
+        info = None
+        for _ in range(2):  # 일시적 조회 실패에 대비해 한 번 더 시도
+            try:
+                info = yf.Ticker(ticker).info
+                break
+            except Exception:
+                time.sleep(2)
+        if not info:
             continue
         market_cap = info.get("marketCap") or 0
         net_margin = info.get("profitMargins")

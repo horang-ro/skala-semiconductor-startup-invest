@@ -9,3 +9,4 @@ outputs/
 data/company/
 # 설계 산출물 초안 (별도 제출)
 RAG-Design_*
+*.log

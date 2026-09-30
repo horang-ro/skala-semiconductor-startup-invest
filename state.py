@@ -69,7 +69,7 @@ class MarketAssessment(BaseModel):
 
     target_market: str = Field(description="목표 시장 이름")
     market_size: str = Field(description="목표 시장 규모와 전망(수치·연도·조사기관). 없으면 '확인 안 됨'")
-    market_cagr_pct: float | None = Field(default=None, description="목표 시장 연평균 성장률(%). 없으면 null")
+    market_cagr_pct: float | None = Field(description="목표 시장 연평균 성장률(%). 없으면 null")
     growth: GradedItem = Field(description="시장 성장성")
     competition: GradedItem = Field(description="시장 경쟁성")
     entry: GradedItem = Field(description="시장 진입성")
@@ -80,10 +80,10 @@ class MarketAssessment(BaseModel):
 class RevenueFacts(BaseModel):
     """매출 평가용 사실 추출 결과."""
 
-    latest_revenue_krw: float | None = Field(default=None, description="가장 최근 연매출(원). 달러면 원화 환산 전 값을 latest_revenue_usd에")
-    latest_revenue_usd: float | None = Field(default=None, description="가장 최근 연매출(달러)")
-    revenue_year: int | None = Field(default=None, description="매출 연도")
-    revenue_cagr_3y_pct: float | None = Field(default=None, description="최근 3개년 매출 연평균 증가율(%). 계산 불가면 null")
+    latest_revenue_krw: float | None = Field(description="가장 최근 연매출(원). 달러면 원화 환산 전 값을 latest_revenue_usd에")
+    latest_revenue_usd: float | None = Field(description="가장 최근 연매출(달러)")
+    revenue_year: int | None = Field(description="매출 연도")
+    revenue_cagr_3y_pct: float | None = Field(description="최근 3개년 매출 연평균 증가율(%). 계산 불가면 null")
     revenue_quality: Literal["product", "mixed", "service", "unknown"] = Field(
         description="product=목표 사업 제품 매출, mixed=제품+용역 혼재, service=용역·과제 위주, unknown=자료 없음"
     )
@@ -95,16 +95,16 @@ class RevenueFacts(BaseModel):
 class ReturnInputs(BaseModel):
     """수익률 계산 입력값 추출 결과."""
 
-    target_share_pct: float | None = Field(default=None, description="기업이 공개한 목표 시장 점유율(%)")
-    future_market_size_usd: float | None = Field(default=None, description="목표 시장의 전망 규모(달러)")
-    future_market_year: int | None = Field(default=None, description="시장 전망 연도")
-    target_revenue_usd: float | None = Field(default=None, description="기업이 공개한 목표 매출(달러 환산)")
-    target_revenue_year: int | None = Field(default=None, description="목표 매출 연도")
-    current_valuation_usd: float | None = Field(default=None, description="공개된 현재 기업가치(달러)")
+    target_share_pct: float | None = Field(description="기업이 공개한 목표 시장 점유율(%)")
+    future_market_size_usd: float | None = Field(description="목표 시장의 전망 규모(달러)")
+    future_market_year: int | None = Field(description="시장 전망 연도")
+    target_revenue_usd: float | None = Field(description="기업이 공개한 목표 매출(달러 환산)")
+    target_revenue_year: int | None = Field(description="목표 매출 연도")
+    current_valuation_usd: float | None = Field(description="공개된 현재 기업가치(달러)")
     latest_round: Literal["seed", "series_a", "series_b", "series_c", "series_d", "unknown"] = Field(
         description="가장 최근 투자 라운드"
     )
-    latest_round_amount_usd: float | None = Field(default=None, description="최근 라운드 투자금(달러)")
+    latest_round_amount_usd: float | None = Field(description="최근 라운드 투자금(달러)")
     reliability: Literal["근거 확인", "일부 확인", "근거 없음"] = Field(
         description="예상 매출 근거가 뉴스·산업 리포트로 확인되는 정도"
     )

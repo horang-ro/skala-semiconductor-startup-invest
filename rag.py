@@ -8,6 +8,7 @@
 """
 
 import sys
+import threading
 from functools import lru_cache
 
 from config import RAG_STORE_DIR, RETRIEVE_K
@@ -15,6 +16,9 @@ from config import RAG_STORE_DIR, RETRIEVE_K
 sys.path.insert(0, str(RAG_STORE_DIR))
 
 DB_PATH = RAG_STORE_DIR / "data" / "vector_store.sqlite"
+
+# 병렬 노드(기술·시장·매출)가 모델을 동시에 불러오거나 인코딩하지 않도록 잠금
+_lock = threading.Lock()
 
 
 @lru_cache(maxsize=1)
@@ -36,10 +40,12 @@ def retrieve(query: str, company_id: str | None = None, agent: str | None = None
     """
     from search import search as hybrid_search  # rag_store/search.py
 
-    results = hybrid_search(DB_PATH, get_model(), query, top_k=k, company=company_id, agent=agent)
-    if not results and agent:
-        # 에이전트 경로 필터로 결과가 없으면 경로 필터 없이 다시 검색
-        results = hybrid_search(DB_PATH, get_model(), query, top_k=k, company=company_id)
+    with _lock:
+        model = get_model()
+        results = hybrid_search(DB_PATH, model, query, top_k=k, company=company_id, agent=agent)
+        if not results and agent:
+            # 에이전트 경로 필터로 결과가 없으면 경로 필터 없이 다시 검색
+            results = hybrid_search(DB_PATH, model, query, top_k=k, company=company_id)
     return results
 
 

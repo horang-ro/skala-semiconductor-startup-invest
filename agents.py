@@ -13,11 +13,14 @@ from config import (
     MARKET_ITEMS,
     MODEL_NAME,
     OUTPUT_DIR,
+    RAG_STORE_DIR,
+    TEAM_FILE_TAG,
     RELAX_CUTOFF_STEP,
     RELAX_TOTAL_STEP,
     TECH_ITEMS,
     TOP_N,
 )
+from pdf import markdown_to_pdf
 from rag import format_docs, retrieve
 from state import (
     SWOT,
@@ -31,12 +34,23 @@ from state import (
 from tools import format_news, get_peer_multiples, get_usd_krw, search_news
 
 
+def load_segments() -> dict:
+    """기업 코드별 세그먼트 이름을 불러옵니다 (rag_store/company_tags.json)."""
+    tags = json.loads((RAG_STORE_DIR / "company_tags.json").read_text(encoding="utf-8"))
+    companies = json.loads((RAG_STORE_DIR / "data" / "companies.json").read_text(encoding="utf-8"))["companies"]
+    labels = {v["company_id"]: v.get("segment_label", "AI 반도체") for v in companies.values()}
+    return {cid: labels.get(cid, "AI 반도체") for cid in tags}
+
+
+SEGMENTS = load_segments()
+
+
 def get_llm(schema=None):
     """LLM을 생성합니다. schema를 주면 구조화 출력으로 반환합니다."""
     llm = init_chat_model(MODEL_NAME, model_provider="openai", temperature=0)
     if schema is None:
         return llm
-    return llm.with_structured_output(schema, method="function_calling")
+    return llm.with_structured_output(schema, method="json_schema", strict=True)
 
 
 def graded_points(item: GradedItem, max_points: float) -> float:
@@ -52,7 +66,7 @@ def graded_points(item: GradedItem, max_points: float) -> float:
 
 GRADE_SCALE = "등급 점수(5점 척도, 0.5 단위): a=4.5~5, b=3.5~4, c=2.5~3, d=1.5~2, e=0.5~1, 자료 없음=none(0점)"
 
-SOURCE_RULE = """- 제공된 자료에 있는 사실만 사용하세요. 자료에 없으면 추측하지 말고 none으로 판정하세요.
+SOURCE_RULE = """- 제공된 자료에 있는 사실만 사용하세요. 자료가 일부라도 있으면 그 범위에서 등급을 판정하고, 관련 자료가 전혀 없을 때만 none으로 판정하세요.
 - 회사 주장 수치와 제3자 검증 수치를 구분하세요.
 - sources에는 실제로 근거로 쓴 문서 섹션 또는 뉴스 URL만 적으세요."""
 
@@ -116,7 +130,12 @@ def market_agent(state: GraphState) -> GraphState:
     """시장 평가 에이전트 (RAG + 뉴스): 시장 40점 (실무가이드 부록 1)."""
     c = state["company"]
     docs = retrieve(f"{c['name_ko']} {c['name']} 목표 시장 시장 규모 성장 경쟁 세그먼트", c["id"], "market")
-    news = search_news(f"{c['name_ko']} 시장 규모 전망")
+    segment = SEGMENTS.get(c["id"], "AI 반도체")
+    news = (
+        search_news(f"{segment} 시장 규모 전망 성장률")
+        + search_news(f"{c['name']} AI chip market size forecast", lang="en")
+        + search_news(f"{c['name_ko']} 경쟁 시장")
+    )
 
     prompt = f"""당신은 반도체 시장 분석가입니다. {c['name_ko']}({c['name']})가 속한 목표 시장을 평가하세요.
 
@@ -135,6 +154,7 @@ entry (시장 진입성)
  a=진입장벽 낮고 법·제도 장려요인 있음 / b=진입장벽 낮고 장려요인 생길 가능성 / c=진입장벽 높지 않고 장려·제약 없음 / d=규모의 경제·비용·영업망·제도 중 한 요소로 진입장벽 매우 높음 / e=복합 제약으로 진입장벽 매우 높음
 
 시장 규모(market_size)는 채점하지 않지만 보고서에 쓰므로 수치·연도·조사기관을 함께 적으세요.
+이 기업의 세그먼트: {segment}
 투자 회수 희망 시점: {state['investment_years']}년 후 (성장성 판단에 고려)
 
 규칙:
@@ -296,14 +316,26 @@ def estimate_valuation(inputs: ReturnInputs) -> tuple[float | None, str]:
     return None, "기업가치 추정 불가"
 
 
-def estimate_revenue(inputs: ReturnInputs, target_year: int, market_cagr_pct: float | None) -> tuple[float | None, str]:
-    """n년 후 예상 매출(달러)을 추정합니다: 목표 점유율 → 목표 매출 → 시장 성장률로 연도 보정."""
+def estimate_revenue(
+    inputs: ReturnInputs,
+    target_year: int,
+    market_cagr_pct: float | None,
+    current_revenue_usd: float | None = None,
+    current_revenue_year: int | None = None,
+) -> tuple[float | None, str]:
+    """n년 후 예상 매출(달러)을 추정합니다.
+
+    우선순위: 목표 점유율 → 목표 매출 → 현재 매출(유사 지표). 기준 연도가 이르면 시장 성장률로 보정.
+    """
     if inputs.target_share_pct and inputs.future_market_size_usd:
         revenue = inputs.future_market_size_usd * inputs.target_share_pct / 100
         base_year, method = inputs.future_market_year, "목표 시장 규모 × 목표 점유율"
     elif inputs.target_revenue_usd:
         revenue = inputs.target_revenue_usd
         base_year, method = inputs.target_revenue_year, "기업 공개 목표 매출"
+    elif current_revenue_usd and market_cagr_pct:
+        revenue = current_revenue_usd
+        base_year, method = current_revenue_year, "현재 매출 (목표 점유율·목표 매출 미공개 → 유사 지표)"
     else:
         return None, "예상 매출 근거 없음"
 
@@ -344,7 +376,14 @@ def forecast_returns(state: GraphState) -> GraphState:
 """
         inputs: ReturnInputs = get_llm(ReturnInputs).invoke(prompt)
 
-        revenue, revenue_method = estimate_revenue(inputs, target_year, e["market"]["detail"].get("market_cagr_pct"))
+        revenue_krw = e["revenue"]["detail"].get("revenue_krw_normalized")
+        revenue, revenue_method = estimate_revenue(
+            inputs,
+            target_year,
+            e["market"]["detail"].get("market_cagr_pct"),
+            current_revenue_usd=revenue_krw / usd_krw if revenue_krw else None,
+            current_revenue_year=e["revenue"]["detail"].get("revenue_year"),
+        )
         valuation, valuation_method = estimate_valuation(inputs)
 
         roi = pv = exit_value = stake = None
@@ -417,7 +456,7 @@ REPORT_TOC = """# SUMMARY  (1/2페이지 이내: 추천 3곳, 투자 금액, 예
 # 1. 평가 기준 및 고지  (평가 프레임, 최종 적용 기준·완화 횟수, 수익률 가정, 예상 매출 신뢰성)
 # 2. 기업별 분석  (추천 3곳 각각: 사업 아이디어·팀 / 기술·시장(시장 규모 포함) / 재무 요약 / 평가 점수·수익률 / SWOT·사업 리스크)
 # 3. 한계점
-# REFERENCE  (실제로 활용한 자료만: 기관·저자, 제목, 날짜, URL)"""
+# REFERENCE  (실제로 활용한 자료만. 형식: [번호] 기관·저자, 「제목」, 발행일, URL)"""
 
 
 def report_agent(state: GraphState) -> GraphState:
@@ -446,6 +485,8 @@ def report_agent(state: GraphState) -> GraphState:
         "기준 완화 횟수": state["relax_round"],
         "수익률 가정": {
             "투자 금액(원)": state["investment_amount"],
+            "투자 금액(달러)": round(state["investment_amount"] / get_usd_krw()),
+            "적용 환율(원/달러)": round(get_usd_krw(), 1),
             "투자 기간(년)": state["investment_years"],
             "할인율": f"{DISCOUNT_RATE:.0%} (기술가치평가 실무가이드: 비상장 자기자본비용 통상 10~25%)",
             "비교기업 순이익률 중간값": peers["net_margin_median"],
@@ -463,7 +504,9 @@ def report_agent(state: GraphState) -> GraphState:
 규칙:
 - 전체 A4 5장 이내. SUMMARY는 개요가 아니라 핵심 요약이며 1/2페이지를 넘지 않게.
 - 데이터에 있는 사실과 숫자만 사용하고, 없는 정보는 "확인 안 됨"으로 쓰세요.
-- 금액은 원화와 달러를 함께 표기하고, 수익률 산정 불가 기업은 그 이유를 밝히세요.
+- 통화 환산을 직접 계산하지 마세요. 데이터에 있는 금액과 "적용 환율"만 사용하세요.
+- 수익률 산정 불가 기업은 그 이유를 밝히세요.
+- 비교기업 PER·순이익률은 현재 상장사 기준이라 Exit 가치가 크게 나올 수 있음을 고지에 적으세요.
 - 예상 매출 신뢰성(근거 확인/일부 확인/근거 없음)을 기업별로 표시하세요.
 - REFERENCE에는 sources에 있는 자료만 적으세요.
 
@@ -481,5 +524,6 @@ def report_agent(state: GraphState) -> GraphState:
     (OUTPUT_DIR / "evaluations.json").write_text(
         json.dumps(state["evaluations"], ensure_ascii=False, indent=2, default=str), encoding="utf-8"
     )
-    print(f"\n보고서 저장: {path}")
+    pdf_path = markdown_to_pdf(report, OUTPUT_DIR / f"RAG-Output_{TEAM_FILE_TAG}.pdf")
+    print(f"\n보고서 저장: {path}\nPDF 저장: {pdf_path}")
     return {"report": report}

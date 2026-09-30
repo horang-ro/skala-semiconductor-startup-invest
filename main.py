@@ -13,6 +13,7 @@ from langchain_core.runnables import RunnableConfig
 
 from config import COMPANIES, INITIAL_CUTOFF_RATIO, INITIAL_TOTAL_THRESHOLD
 from graph import build_graph
+from rag import get_model
 
 
 def main():
@@ -36,6 +37,8 @@ def main():
         logging.langsmith("SKALA-Startup-Invest")
     except Exception:
         pass
+
+    get_model()  # 병렬 실행 전에 임베딩 모델을 한 번 미리 로딩
 
     companies = COMPANIES[: args.limit] if args.limit else COMPANIES
     inputs = {

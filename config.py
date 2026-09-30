@@ -14,8 +14,8 @@ MODEL_NAME = "gpt-4.1-mini"
 EMBEDDING_MODEL = "BAAI/bge-m3"  # 오픈소스 임베딩 (설계서 B. Embedding 모델)
 
 # 검색
-RETRIEVE_K = 6
-NEWS_MAX_RESULTS = 5
+RETRIEVE_K = 30  # 청크가 한 줄짜리 사실 단위라 넉넉히 가져옴
+NEWS_MAX_RESULTS = 8
 
 # 평가 대상 30개사 (설계서 기업 리스트). id = rag_store 기업 코드
 COMPANIES = [
@@ -88,3 +88,6 @@ PEER_TICKERS = [  # 상장 반도체 설계·IP 기업 후보 (대기업은 시�
     "CEVA", "MXL", "POWI", "SYNA", "MPWR", "QRVO", "NVDA", "AVGO", "QCOM", "AMD",
 ]
 DEFAULT_USD_KRW = 1400.0  # 환율 조회 실패 시 사용하는 기본값
+
+# 제출 파일명 (과제 Deliverables)
+TEAM_FILE_TAG = "울산캠퍼스-1반_김해린+이은주+박준형+이성환+유희범"
