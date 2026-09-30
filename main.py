@@ -3,15 +3,17 @@
 사용 예:
     python main.py --amount 1000000000 --years 5
     python main.py --limit 3          # 앞 3개사만으로 빠르게 점검
+    python main.py --reuse            # 저장된 점수로 투자 판단·보고서만 다시 생성
     python main.py --draw             # 그래프 구조(mermaid)만 출력
 """
 
 import argparse
+import json
 
 from dotenv import load_dotenv
 from langchain_core.runnables import RunnableConfig
 
-from config import COMPANIES, INITIAL_CUTOFF_RATIO, INITIAL_TOTAL_THRESHOLD
+from config import COMPANIES, INITIAL_CUTOFF_RATIO, INITIAL_TOTAL_THRESHOLD, OUTPUT_DIR
 from graph import build_graph
 from rag import get_model
 
@@ -21,6 +23,7 @@ def main():
     parser.add_argument("--amount", type=float, default=1_000_000_000, help="투자 금액(원)")
     parser.add_argument("--years", type=int, default=5, help="투자 유지 기간(년)")
     parser.add_argument("--limit", type=int, default=None, help="평가할 기업 수 (점검용)")
+    parser.add_argument("--reuse", action="store_true", help="outputs/evaluations.json 점수를 재사용")
     parser.add_argument("--draw", action="store_true", help="그래프 mermaid만 출력")
     args = parser.parse_args()
 
@@ -41,12 +44,19 @@ def main():
     get_model()  # 병렬 실행 전에 임베딩 모델을 한 번 미리 로딩
 
     companies = COMPANIES[: args.limit] if args.limit else COMPANIES
+    evaluations, start_index = [], 0
+    if args.reuse:
+        evaluations = json.loads((OUTPUT_DIR / "evaluations.json").read_text(encoding="utf-8"))
+        companies = [e["company"] for e in evaluations]
+        start_index = len(companies)
+        print(f"저장된 평가 {len(evaluations)}건 재사용")
+
     inputs = {
         "investment_amount": args.amount,
         "investment_years": args.years,
         "companies": companies,
-        "current_index": 0,
-        "evaluations": [],
+        "current_index": start_index,
+        "evaluations": evaluations,
         "threshold_total": INITIAL_TOTAL_THRESHOLD,
         "threshold_cutoff": INITIAL_CUTOFF_RATIO,
         "relax_round": 0,

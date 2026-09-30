@@ -13,6 +13,7 @@ from agents import (
     revenue_agent,
     route_after_judge,
     route_after_record,
+    route_start,
     select_company,
     select_top,
     swot_agent,
@@ -43,7 +44,12 @@ def build_graph():
     workflow.add_node("swot_agent", swot_agent)
     workflow.add_node("report_agent", report_agent)
 
-    workflow.add_edge(START, "select_company")
+    # 시작: 저장된 평가를 재사용하면 투자 판단부터, 아니면 기업 분석부터
+    workflow.add_conditional_edges(
+        START,
+        route_start,
+        {"select_company": "select_company", "investment_judge": "investment_judge"},
+    )
 
     # 병렬 분석 (fan-out) → 세 결과가 모두 끝나면 저장 (fan-in)
     workflow.add_edge("select_company", "tech_agent")

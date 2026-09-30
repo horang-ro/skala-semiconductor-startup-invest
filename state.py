@@ -69,7 +69,11 @@ class MarketAssessment(BaseModel):
 
     target_market: str = Field(description="목표 시장 이름")
     market_size: str = Field(description="목표 시장 규모와 전망(수치·연도·조사기관). 없으면 '확인 안 됨'")
-    market_cagr_pct: float | None = Field(description="목표 시장 연평균 성장률(%). 없으면 null")
+    market_cagr_pct: float | None = Field(description="자료에 명시된 목표 시장 연평균 성장률(%). 없으면 null")
+    size_base_usd: float | None = Field(description="기준 연도 시장 규모(달러). 없으면 null")
+    size_base_year: int | None = Field(description="기준 연도. 없으면 null")
+    size_future_usd: float | None = Field(description="전망 연도 시장 규모(달러). 없으면 null")
+    size_future_year: int | None = Field(description="전망 연도. 없으면 null")
     growth: GradedItem = Field(description="시장 성장성")
     competition: GradedItem = Field(description="시장 경쟁성")
     entry: GradedItem = Field(description="시장 진입성")
@@ -105,6 +109,7 @@ class ReturnInputs(BaseModel):
         description="가장 최근 투자 라운드"
     )
     latest_round_amount_usd: float | None = Field(description="최근 라운드 투자금(달러)")
+    total_funding_usd: float | None = Field(description="누적 투자 유치액(달러). 없으면 null")
     reliability: Literal["근거 확인", "일부 확인", "근거 없음"] = Field(
         description="예상 매출 근거가 뉴스·산업 리포트로 확인되는 정도"
     )

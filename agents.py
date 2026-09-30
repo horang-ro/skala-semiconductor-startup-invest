@@ -1,6 +1,7 @@
 """투자 평가 그래프의 노드(에이전트)를 정의합니다."""
 
 import json
+import statistics
 from datetime import date
 
 from langchain.chat_models import init_chat_model
@@ -42,7 +43,14 @@ def load_segments() -> dict:
     return {cid: labels.get(cid, "AI 반도체") for cid in tags}
 
 
+def load_features() -> dict:
+    """기업 코드별 기술 특징 태그를 불러옵니다 (시장 뉴스 검색어에 사용)."""
+    tags = json.loads((RAG_STORE_DIR / "company_tags.json").read_text(encoding="utf-8"))
+    return {cid: " ".join(t.replace("_", " ") for t in v.get("features", [])[:3]) for cid, v in tags.items()}
+
+
 SEGMENTS = load_segments()
+FEATURES = load_features()
 
 
 def get_llm(schema=None):
@@ -133,7 +141,7 @@ def market_agent(state: GraphState) -> GraphState:
     segment = SEGMENTS.get(c["id"], "AI 반도체")
     news = (
         search_news(f"{segment} 시장 규모 전망 성장률")
-        + search_news(f"{c['name']} AI chip market size forecast", lang="en")
+        + search_news(f"{FEATURES.get(c['id'], 'AI chip')} market size forecast CAGR", lang="en")
         + search_news(f"{c['name_ko']} 경쟁 시장")
     )
 
@@ -154,6 +162,8 @@ entry (시장 진입성)
  a=진입장벽 낮고 법·제도 장려요인 있음 / b=진입장벽 낮고 장려요인 생길 가능성 / c=진입장벽 높지 않고 장려·제약 없음 / d=규모의 경제·비용·영업망·제도 중 한 요소로 진입장벽 매우 높음 / e=복합 제약으로 진입장벽 매우 높음
 
 시장 규모(market_size)는 채점하지 않지만 보고서에 쓰므로 수치·연도·조사기관을 함께 적으세요.
+- 자료에 연평균 성장률(CAGR)이 있으면 market_cagr_pct에 반드시 숫자로 적으세요.
+- 기준 연도와 전망 연도의 시장 규모가 있으면 size_base_*, size_future_*에 달러 금액으로 적으세요 (1 billion = 1e9).
 이 기업의 세그먼트: {segment}
 투자 회수 희망 시점: {state['investment_years']}년 후 (성장성 판단에 고려)
 
@@ -168,12 +178,21 @@ entry (시장 진입성)
 """
     result: MarketAssessment = get_llm(MarketAssessment).invoke(prompt)
 
+    # 성장률이 명시되지 않았으면 두 시점의 시장 규모로 계산
+    detail = result.model_dump()
+    if detail["market_cagr_pct"] is None and all(
+        detail[k] for k in ("size_base_usd", "size_base_year", "size_future_usd", "size_future_year")
+    ) and detail["size_future_year"] > detail["size_base_year"]:
+        span = detail["size_future_year"] - detail["size_base_year"]
+        detail["market_cagr_pct"] = round(((detail["size_future_usd"] / detail["size_base_usd"]) ** (1 / span) - 1) * 100, 1)
+        detail["market_cagr_basis"] = "두 시점 시장 규모로 계산"
+
     items = {key: graded_points(getattr(result, key), pts) for key, pts in MARKET_ITEMS.items()}
     return {
         "market_result": {
             "score": round(sum(items.values()), 1),
             "items": items,
-            "detail": result.model_dump(),
+            "detail": detail,
             "sources": result.sources + [n["url"] for n in news],
         }
     }
@@ -224,7 +243,9 @@ def revenue_agent(state: GraphState) -> GraphState:
 
 - 가장 최근 연매출과 연도, 최근 3개년 매출 연평균 증가율을 찾으세요. 계산에 필요한 연도 값이 없으면 null.
 - 데이터 성격(공시/보도/2차DB/회사발표/미공개)을 구분하세요. "미공개"는 0원이 아닙니다 → null.
-- 투자금, 수주 약정, 기업가치, 목표 매출은 매출이 아닙니다.
+- 투자금, 수주 잔고·약정, 기업가치, 목표·전망 매출은 매출이 아닙니다. 매출로 적지 마세요.
+- 조사 보고서(RAG)를 우선합니다. 조사 보고서가 "미공개"라고 한 기업은 뉴스에 매출처럼 보이는 숫자가 있어도 null로 두세요.
+- 뉴스는 조사 보고서의 매출을 보강할 때만 사용하세요.
 - revenue_quality: 목표 사업 제품 매출이면 product, 제품+용역 혼재면 mixed, 용역·과제 위주면 service, 자료 없으면 unknown.
 
 규칙:
@@ -268,6 +289,13 @@ def record_evaluation(state: GraphState) -> GraphState:
     return {"evaluations": [evaluation], "current_index": state["current_index"] + 1}
 
 
+def route_start(state: GraphState) -> str:
+    """저장된 평가를 재사용하면 분석을 건너뛰고 투자 판단부터 시작합니다."""
+    if state.get("evaluations") and state["current_index"] >= len(state["companies"]):
+        return "investment_judge"
+    return "select_company"
+
+
 def route_after_record(state: GraphState) -> str:
     """남은 기업이 있으면 다음 기업, 없으면 투자 판단으로 이동합니다."""
     if state["current_index"] < len(state["companies"]):
@@ -307,12 +335,19 @@ def relax_criteria(state: GraphState) -> GraphState:
 
 
 def estimate_valuation(inputs: ReturnInputs) -> tuple[float | None, str]:
-    """현재 기업가치(달러)를 추정합니다: 공개 기업가치 → 최근 라운드 ÷ Carta 중간 희석률."""
+    """현재 기업가치(달러)를 추정합니다.
+
+    우선순위: 공개 기업가치 → 최근 라운드 ÷ Carta 중간 희석률 → 누적 투자금 ÷ 중간 희석률.
+    (그래도 없으면 forecast_returns에서 세그먼트 중간값으로 대체)
+    """
+    median_dilution = statistics.median(DILUTION_BY_ROUND.values())
     if inputs.current_valuation_usd:
         return inputs.current_valuation_usd, "공개 기업가치"
-    if inputs.latest_round_amount_usd and inputs.latest_round in DILUTION_BY_ROUND:
-        dilution = DILUTION_BY_ROUND[inputs.latest_round]
+    if inputs.latest_round_amount_usd:
+        dilution = DILUTION_BY_ROUND.get(inputs.latest_round, median_dilution)
         return inputs.latest_round_amount_usd / dilution, f"최근 라운드 ÷ Carta 중간 희석률 {dilution:.1%}"
+    if inputs.total_funding_usd:
+        return inputs.total_funding_usd / median_dilution, f"누적 투자금 ÷ Carta 중간 희석률 {median_dilution:.1%} (라운드 정보 없음)"
     return None, "기업가치 추정 불가"
 
 
@@ -345,23 +380,46 @@ def estimate_revenue(
     return revenue, method
 
 
+def median_by_segment(values: dict[str, float]) -> tuple[dict[str, float], float | None]:
+    """기업 코드별 값을 세그먼트 중간값과 전체 중간값으로 요약합니다."""
+    by_segment: dict[str, list[float]] = {}
+    for cid, value in values.items():
+        by_segment.setdefault(SEGMENTS.get(cid), []).append(value)
+    overall = statistics.median(values.values()) if values else None
+    return {seg: statistics.median(v) for seg, v in by_segment.items()}, overall
+
+
 def forecast_returns(state: GraphState) -> GraphState:
-    """통과 기업의 투자 수익률을 예측합니다 (투자 판단 에이전트)."""
+    """통과 기업의 투자 수익률을 예측합니다 (투자 판단 에이전트).
+
+    입력값이 비어 있으면 단계별 대체값을 써서 수익률을 항상 산출하고,
+    어떤 대체값을 썼는지 method에 남깁니다.
+    """
     peers = get_peer_multiples()
     usd_krw = get_usd_krw()
     years = state["investment_years"]
     target_year = date.today().year + years
     invest_usd = state["investment_amount"] / usd_krw
 
-    forecasts = []
+    # 시장 성장률: 기업별 → 같은 세그먼트 중간값 → 전체 중간값
+    cagr_values = {
+        ev["company"]["id"]: ev["market"]["detail"]["market_cagr_pct"]
+        for ev in state["evaluations"]
+        if ev["market"]["detail"].get("market_cagr_pct")
+    }
+    cagr_by_segment, cagr_overall = median_by_segment(cagr_values)
+
+    # 1단계: 통과 기업의 수익률 입력값 추출 (RAG + 뉴스)
+    extracted = []
     for e in state["passed"]:
         c = e["company"]
-        docs = retrieve(f"{c['name_ko']} {c['name']} 목표 매출 시장 점유율 기업가치 투자 라운드", c["id"], "investment")
-        news = search_news(f"{c['name_ko']} 목표 매출 점유율")
+        docs = retrieve(f"{c['name_ko']} {c['name']} 목표 매출 시장 점유율 기업가치 투자 라운드 누적 투자", c["id"], "investment")
+        news = search_news(f"{c['name_ko']} 목표 매출 점유율") + search_news(f"{c['name']} valuation funding round", lang="en")
         prompt = f"""{c['name_ko']}({c['name']})의 수익률 계산 입력값을 추출하세요.
 
 - 기업이 공개한 목표 시장 점유율, 목표 시장의 전망 규모(연도), 목표 매출(연도)
-- 공개된 현재 기업가치, 가장 최근 투자 라운드와 금액 (원화는 1달러={usd_krw:.0f}원으로 환산)
+- 공개된 현재 기업가치, 가장 최근 투자 라운드와 금액, 누적 투자 유치액 (원화는 1달러={usd_krw:.0f}원으로 환산)
+- 수주 잔고·약정은 목표 매출이 아닙니다.
 - 예상 매출의 근거가 뉴스·산업 리포트로 확인되는지 신뢰성을 판정하세요.
 - 목표 시장: {e['market']['detail']['target_market']} / 시장 규모 자료: {e['market']['detail']['market_size']}
 
@@ -375,24 +433,55 @@ def forecast_returns(state: GraphState) -> GraphState:
 {format_news(news)}
 """
         inputs: ReturnInputs = get_llm(ReturnInputs).invoke(prompt)
+        valuation, valuation_method = estimate_valuation(inputs)
+        extracted.append({"e": e, "inputs": inputs, "news": news, "valuation": valuation, "valuation_method": valuation_method})
+
+    # 기업가치 대체값: 같은 세그먼트 통과 기업의 중간값 → 전체 중간값
+    valuation_by_segment, valuation_overall = median_by_segment(
+        {x["e"]["company"]["id"]: x["valuation"] for x in extracted if x["valuation"]}
+    )
+
+    # 2단계: 수익률 계산
+    forecasts = []
+    for x in extracted:
+        e, inputs = x["e"], x["inputs"]
+        c = e["company"]
+        segment = SEGMENTS.get(c["id"])
+
+        market_cagr = cagr_values.get(c["id"])
+        cagr_note = ""
+        if not market_cagr:
+            market_cagr = cagr_by_segment.get(segment) or cagr_overall
+            cagr_note = " [시장 성장률: 같은 세그먼트 기업 중간값]" if cagr_by_segment.get(segment) else " [시장 성장률: 전체 기업 중간값]"
+            market_cagr = round(market_cagr, 1) if market_cagr else None
+
+        valuation, valuation_method = x["valuation"], x["valuation_method"]
+        if not valuation:
+            valuation = valuation_by_segment.get(segment) or valuation_overall
+            valuation_method = "같은 세그먼트 통과 기업의 기업가치 중간값 (대체값)" if valuation_by_segment.get(segment) else "통과 기업 전체의 기업가치 중간값 (대체값)"
 
         revenue_krw = e["revenue"]["detail"].get("revenue_krw_normalized")
         revenue, revenue_method = estimate_revenue(
             inputs,
             target_year,
-            e["market"]["detail"].get("market_cagr_pct"),
+            market_cagr,
             current_revenue_usd=revenue_krw / usd_krw if revenue_krw else None,
             current_revenue_year=e["revenue"]["detail"].get("revenue_year"),
         )
-        valuation, valuation_method = estimate_valuation(inputs)
 
         roi = pv = exit_value = stake = None
-        if revenue and valuation:
-            net_income = revenue * peers["net_margin_median"]
-            exit_value = net_income * peers["pe_median"]
-            stake = invest_usd / (valuation + invest_usd)
-            pv = exit_value * stake / (1 + DISCOUNT_RATE) ** years
-            roi = (pv - invest_usd) / invest_usd
+        if valuation:
+            if revenue:
+                exit_value = revenue * peers["net_margin_median"] * peers["pe_median"]
+                revenue_method += cagr_note
+            elif market_cagr:
+                # 매출을 추정할 수 없으면 현재 기업가치가 시장 성장률만큼 성장한다고 가정
+                exit_value = valuation * (1 + market_cagr / 100) ** years
+                revenue_method = f"매출 미공개 → 현재 기업가치가 시장 성장률 {market_cagr}%로 성장한다고 가정 (대체 계산){cagr_note}"
+            if exit_value:
+                stake = invest_usd / (valuation + invest_usd)
+                pv = exit_value * stake / (1 + DISCOUNT_RATE) ** years
+                roi = (pv - invest_usd) / invest_usd
 
         forecasts.append({
             "company": c,
@@ -400,6 +489,7 @@ def forecast_returns(state: GraphState) -> GraphState:
             "roi": roi,
             "expected_revenue_usd": revenue,
             "revenue_method": revenue_method,
+            "market_cagr_pct": market_cagr,
             "valuation_usd": valuation,
             "valuation_method": valuation_method,
             "stake": stake,
@@ -407,7 +497,7 @@ def forecast_returns(state: GraphState) -> GraphState:
             "present_value_usd": pv,
             "reliability": inputs.reliability,
             "reliability_note": inputs.reliability_note,
-            "sources": inputs.sources + [n["url"] for n in news],
+            "sources": inputs.sources + [n["url"] for n in x["news"]],
         })
         roi_text = f"{roi:.0%}" if roi is not None else "산정 불가"
         print(f"  {c['name_ko']}: 수익률 {roi_text} ({revenue_method} / {valuation_method})")
@@ -459,6 +549,31 @@ REPORT_TOC = """# SUMMARY  (1/2페이지 이내: 추천 3곳, 투자 금액, 예
 # REFERENCE  (실제로 활용한 자료만. 형식: [번호] 기관·저자, 「제목」, 발행일, URL)"""
 
 
+def format_money(usd: float | None, usd_krw: float) -> str:
+    """달러 금액을 '달러 (원화)' 문자열로 표기합니다."""
+    if usd is None:
+        return "확인 안 됨"
+    return f"${usd / 1e6:,.1f}M (약 {usd * usd_krw / 1e8:,.0f}억 원)"
+
+
+def format_forecast(f: dict, usd_krw: float) -> dict:
+    """수익률 예측값을 보고서에 그대로 옮겨 쓸 수 있는 문자열로 바꿉니다."""
+    roi = f["roi"]
+    return {
+        "예상 수익률": f"{roi * 100:+.1f}%" if roi is not None else "산정 불가",
+        "n년 후 예상 매출": format_money(f["expected_revenue_usd"], usd_krw),
+        "예상 매출 산정 방식": f["revenue_method"],
+        "적용 시장 성장률": f"{f['market_cagr_pct']}%" if f.get("market_cagr_pct") else "확인 안 됨",
+        "현재 기업가치": format_money(f["valuation_usd"], usd_krw),
+        "기업가치 산정 방식": f["valuation_method"],
+        "취득 지분율": f"{f['stake'] * 100:.4f}%" if f["stake"] else "확인 안 됨",
+        "Exit 시점 기업가치": format_money(f["exit_value_usd"], usd_krw),
+        "회수 금액의 현재가치": format_money(f["present_value_usd"], usd_krw),
+        "예상 매출 신뢰성": f["reliability"],
+        "신뢰성 근거": f["reliability_note"],
+    }
+
+
 def report_agent(state: GraphState) -> GraphState:
     """투자 보고서를 생성합니다 (5장 이내)."""
     evaluations = {e["company"]["id"]: e for e in state["evaluations"]}
@@ -474,7 +589,7 @@ def report_agent(state: GraphState) -> GraphState:
             "tech": e["tech"]["detail"],
             "market": e["market"]["detail"],
             "revenue": e["revenue"]["detail"],
-            "forecast": {k: v for k, v in f.items() if k != "company"},
+            "forecast": format_forecast(f, get_usd_krw()),
             "swot": {k: v for k, v in s.items() if k != "company"},
             "sources": sorted(set(e["tech"]["sources"] + e["market"]["sources"] + e["revenue"]["sources"] + f["sources"])),
         })
@@ -484,13 +599,12 @@ def report_agent(state: GraphState) -> GraphState:
         "최종 적용 기준": f"총점 {state['threshold_total']}점 이상, 영역별 과락 {state['threshold_cutoff']:.0%}",
         "기준 완화 횟수": state["relax_round"],
         "수익률 가정": {
-            "투자 금액(원)": state["investment_amount"],
-            "투자 금액(달러)": round(state["investment_amount"] / get_usd_krw()),
+            "투자 금액": f"기업당 {state['investment_amount'] / 1e8:,.0f}억 원 (약 ${state['investment_amount'] / get_usd_krw() / 1e6:,.2f}M)",
             "적용 환율(원/달러)": round(get_usd_krw(), 1),
             "투자 기간(년)": state["investment_years"],
             "할인율": f"{DISCOUNT_RATE:.0%} (기술가치평가 실무가이드: 비상장 자기자본비용 통상 10~25%)",
-            "비교기업 순이익률 중간값": peers["net_margin_median"],
-            "비교기업 PER 중간값": peers["pe_median"],
+            "비교기업 순이익률 중간값": f"{peers['net_margin_median'] * 100:.1f}%",
+            "비교기업 PER 중간값": f"{peers['pe_median']:.1f}배",
             "비교기업 출처": peers["source"] + f" ({peers['date']})",
         },
         "평가 기업 수": len(state["evaluations"]),
@@ -504,7 +618,8 @@ def report_agent(state: GraphState) -> GraphState:
 규칙:
 - 전체 A4 5장 이내. SUMMARY는 개요가 아니라 핵심 요약이며 1/2페이지를 넘지 않게.
 - 데이터에 있는 사실과 숫자만 사용하고, 없는 정보는 "확인 안 됨"으로 쓰세요.
-- 통화 환산을 직접 계산하지 마세요. 데이터에 있는 금액과 "적용 환율"만 사용하세요.
+- 통화 환산이나 수익률을 직접 계산하지 마세요. forecast의 문자열을 글자 그대로 옮기세요.
+- "예상 수익률"은 (회수 금액의 현재가치 − 투자 금액) ÷ 투자 금액입니다. +는 이익, −는 손실이며 0%에 가까우면 원금 수준입니다.
 - 수익률 산정 불가 기업은 그 이유를 밝히세요.
 - 비교기업 PER·순이익률은 현재 상장사 기준이라 Exit 가치가 크게 나올 수 있음을 고지에 적으세요.
 - 예상 매출 신뢰성(근거 확인/일부 확인/근거 없음)을 기업별로 표시하세요.
@@ -521,6 +636,9 @@ def report_agent(state: GraphState) -> GraphState:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     path = OUTPUT_DIR / f"investment_report_{date.today()}.md"
     path.write_text(report, encoding="utf-8")
+    (OUTPUT_DIR / "forecasts.json").write_text(
+        json.dumps(state["forecasts"], ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+    )
     (OUTPUT_DIR / "evaluations.json").write_text(
         json.dumps(state["evaluations"], ensure_ascii=False, indent=2, default=str), encoding="utf-8"
     )
