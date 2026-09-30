@@ -1,0 +1,654 @@
+[
+  {
+    "chunk_id": "MOB_8094b9523968ffe3",
+    "company_id": "MOB",
+    "company_name": "모빌린트",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 500000000,
+    "amount_raw": "5억 원",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.1 모빌린트 (Mobilint, 한국)\n재무\n| 연도 | 매출 | 영업손익 |\n출처: 더벨 [MOB-1]. 기사는 중소벤처기업부 중소기업현황정보시스템을 인용했다.\n{'연도': '2024', '매출': '5억 원', '영업손익': '확인 안 됨'}",
+    "source_ids": [
+      "MOB-1"
+    ],
+    "source_urls": [
+      "https://www.thebell.co.kr/front/newsview.asp?key=202604142143494560102221"
+    ],
+    "source_dates": [
+      "2026-04-15"
+    ],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "MOB_601c827d7125714d",
+    "company_id": "MOB",
+    "company_name": "모빌린트",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 3700000000,
+    "amount_raw": "37억 원 (+635%)",
+    "amount_precision": "source_exact",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.1 모빌린트 (Mobilint, 한국)\n재무\n| 연도 | 매출 | 영업손익 |\n출처: 더벨 [MOB-1]. 기사는 중소벤처기업부 중소기업현황정보시스템을 인용했다.\n{'연도': '2025', '매출': '37억 원 (+635%)', '영업손익': '-83억 원'}",
+    "source_ids": [
+      "MOB-1"
+    ],
+    "source_urls": [
+      "https://www.thebell.co.kr/front/newsview.asp?key=202604142143494560102221"
+    ],
+    "source_dates": [
+      "2026-04-15"
+    ],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "DX_fbb67d025d68b7be",
+    "company_id": "DX",
+    "company_name": "딥엑스",
+    "revenue_year": 2021,
+    "currency": "KRW",
+    "amount": 0,
+    "amount_raw": "0원",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.2 딥엑스 (DEEPX, 한국)\n재무 (DART 감사보고서)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2021 (4기)', '매출': '0원', '영업손실': '17.5억', '당기순손실': '17.3억', '비고': '일반기준, 한울 [DX-4]'}",
+    "source_ids": [
+      "DX-4"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20220406000147"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "DX_fd617bdb5fef3bb5",
+    "company_id": "DX",
+    "company_name": "딥엑스",
+    "revenue_year": 2022,
+    "currency": "KRW",
+    "amount": 810000000,
+    "amount_raw": "8.1억",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "comparative_audit_not_established",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.2 딥엑스 (DEEPX, 한국)\n재무 (DART 감사보고서)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2022 (5기)', '매출': '8.1억', '영업손실': '43.7억', '당기순손실': '37.5억', '비고': '2023년 보고서의 비교 수치 [DX-3]'}",
+    "source_ids": [
+      "DX-3"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240326000462"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "DX_1ee57e08a0b3956a",
+    "company_id": "DX",
+    "company_name": "딥엑스",
+    "revenue_year": 2023,
+    "currency": "KRW",
+    "amount": 50000000,
+    "amount_raw": "0.5억",
+    "amount_precision": "source_rounded",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.2 딥엑스 (DEEPX, 한국)\n재무 (DART 감사보고서)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2023 (6기)', '매출': '0.5억', '영업손실': '90.6억', '당기순손실': '83.8억', '비고': '일반기준, 삼일 [DX-3]'}",
+    "source_ids": [
+      "DX-3"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240326000462"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "DX_7e4cf85f5920051f",
+    "company_id": "DX",
+    "company_name": "딥엑스",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 280000000,
+    "amount_raw": "2.8억",
+    "amount_precision": "source_rounded",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.2 딥엑스 (DEEPX, 한국)\n재무 (DART 감사보고서)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2024 (7기)', '매출': '2.8억', '영업손실': '241.0억', '당기순손실': '217.7억', '비고': '일반기준, 삼일 [DX-2]'}",
+    "source_ids": [
+      "DX-2"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250331001514"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "DX_c9a5a31728b3e8bc",
+    "company_id": "DX",
+    "company_name": "딥엑스",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 1030000000,
+    "amount_raw": "10.3억",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "unaudited",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.2 딥엑스 (DEEPX, 한국)\n재무 (DART 감사보고서)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2024 (7기) 재작성', '매출': '10.3억', '영업손실': '257.7억', '당기순손실': '346.3억', '비고': 'K-IFRS 재작성, 감사받지 않음 [DX-1]'}",
+    "source_ids": [
+      "DX-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410000236"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "DX_877e69485d87bac3",
+    "company_id": "DX",
+    "company_name": "딥엑스",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 3320000000,
+    "amount_raw": "33.2억",
+    "amount_precision": "source_rounded",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.2 딥엑스 (DEEPX, 한국)\n재무 (DART 감사보고서)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2025 (8기)', '매출': '33.2억', '영업손실': '194.6억', '당기순손실': '580.4억', '비고': 'K-IFRS, 삼화 [DX-1]'}",
+    "source_ids": [
+      "DX-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410000236"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "BOS_2e2792ef27cc7436",
+    "company_id": "BOS",
+    "company_name": "보스반도체",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 6070000000,
+    "amount_raw": "60.7억",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "unaudited",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.3 보스반도체 (BOS Semiconductors, 한국)\n재무 (DART 감사보고서, 현대회계법인)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2024 (3기)', '매출': '60.7억', '영업손실': '132.3억', '당기순손실': '134.3억', '비고': '감사받지 않은 비교 수치'}",
+    "source_ids": [
+      "BOS-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260406000194"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "BOS_56cab0c9f0bc2669",
+    "company_id": "BOS",
+    "company_name": "보스반도체",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 3857831213,
+    "amount_raw": "38.6억",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU\n2.3 보스반도체 (BOS Semiconductors, 한국)\n재무 (DART 감사보고서, 현대회계법인)\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2025 (4기)', '매출': '38.6억', '영업손실': '313.2억', '당기순손실': '318.0억', '비고': '감사 [BOS-1]'}",
+    "source_ids": [
+      "BOS-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260406000194"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null,
+    "exact_amount_note_chunk_id": "BOS_47ff72c7fb4e72c2",
+    "exact_amount_note_raw": "기사는 2025년 매출을 \"39억\"으로 적었다 [BOS-2]. 원문 값은 3,857,831,213원이다."
+  },
+  {
+    "chunk_id": "HA_696aa29bc2e4e263",
+    "company_id": "HA",
+    "company_name": "하이퍼엑셀",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 239467768,
+    "amount_raw": "239,467,768원 (2.4억)",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.1 하이퍼엑셀 (HyperAccel, 한국)\n재무 (DART 감사보고서, 삼일회계법인) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 |\n{'연도 (기수)': '2024 (2기)', '매출': '239,467,768원 (2.4억)', '영업손실': '99.0억', '당기순손실': '100.2억'}",
+    "source_ids": [
+      "HA-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260401003532"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "HA_38716e5cd486e9c6",
+    "company_id": "HA",
+    "company_name": "하이퍼엑셀",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 2244031820,
+    "amount_raw": "2,244,031,820원 (22.4억)",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.1 하이퍼엑셀 (HyperAccel, 한국)\n재무 (DART 감사보고서, 삼일회계법인) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 |\n{'연도 (기수)': '2025 (3기)', '매출': '2,244,031,820원 (22.4억)', '영업손실': '123.0억', '당기순손실': '113.0억'}",
+    "source_ids": [
+      "HA-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260401003532"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "RBL_c9983587987c7fc9",
+    "company_id": "RBL",
+    "company_name": "리벨리온",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 10350000000,
+    "amount_raw": "103.5억",
+    "amount_precision": "source_rounded",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.2 리벨리온 (Rebellions, 한국)\n재무 (DART 감사보고서, 별도, 안진회계법인) ✎\n| 연도 | 매출 | 영업손실 | 당기순손실 |\n{'연도': '2024', '매출': '103.5억', '영업손실': '870.1억', '당기순손실': '2,338.6억'}",
+    "source_ids": [
+      "RBL-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414001298"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "RBL_091da21c0a870910",
+    "company_id": "RBL",
+    "company_name": "리벨리온",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 32021696412,
+    "amount_raw": "320.2억",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.2 리벨리온 (Rebellions, 한국)\n재무 (DART 감사보고서, 별도, 안진회계법인) ✎\n| 연도 | 매출 | 영업손실 | 당기순손실 |\n{'연도': '2025', '매출': '320.2억', '영업손실': '1,209.2억', '당기순손실': '2,074.0억'}",
+    "source_ids": [
+      "RBL-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414001298"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null,
+    "exact_amount_note_chunk_id": "RBL_28d034919b928185",
+    "exact_amount_note_raw": "✎ 원자료는 \"2025년 약 320억 원, **공식 공시 미확정**\"이라고 적었다. 실제로는 DART 감사보고서에 **32,021,696,412원으로 공시**되어 있다 [RBL-1]."
+  },
+  {
+    "chunk_id": "FUR_3b37ca41748be42c",
+    "company_id": "FUR",
+    "company_name": "퓨리오사AI",
+    "revenue_year": 2023,
+    "currency": "KRW",
+    "amount": 3620000000,
+    "amount_raw": "36.2억",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "unaudited",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.3 퓨리오사AI (FuriosaAI, 한국)\n재무 (DART 감사보고서, 삼일회계법인) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2023 (7기)', '매출': '36.2억', '영업손실': '598.6억', '당기순손실': '766.5억', '비고': '2024년 보고서의 비교 수치, 감사받지 않음 [FUR-2]'}",
+    "source_ids": [
+      "FUR-2"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430000607"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "FUR_46e0ef7497360029",
+    "company_id": "FUR",
+    "company_name": "퓨리오사AI",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 2960000000,
+    "amount_raw": "29.6억",
+    "amount_precision": "source_rounded",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.3 퓨리오사AI (FuriosaAI, 한국)\n재무 (DART 감사보고서, 삼일회계법인) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2024 (8기)', '매출': '29.6억', '영업손실': '725.4억', '당기순손실': '1,521.7억', '비고': '감사 [FUR-2]'}",
+    "source_ids": [
+      "FUR-2"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430000607"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "FUR_d76d62a8e8898a42",
+    "company_id": "FUR",
+    "company_name": "퓨리오사AI",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 5742369775,
+    "amount_raw": "57.4억",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.3 퓨리오사AI (FuriosaAI, 한국)\n재무 (DART 감사보고서, 삼일회계법인) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n{'연도 (기수)': '2025 (9기)', '매출': '57.4억', '영업손실': '550.9억', '당기순손실': '8,333.5억', '비고': '감사 [FUR-1]'}",
+    "source_ids": [
+      "FUR-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414002647"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null,
+    "exact_amount_note_chunk_id": "FUR_d2c24380b7772705",
+    "exact_amount_note_raw": "✎ 원자료는 \"2025년 약 57억 원, 공식 공시 미확정\"이라고 적었다. 실제로는 5,742,369,775원으로 **공시되어 있다** [FUR-1]."
+  },
+  {
+    "chunk_id": "GRQ_77bfe0de678d905d",
+    "company_id": "GRQ",
+    "company_name": "Groq",
+    "revenue_year": 2024,
+    "currency": "USD",
+    "amount": 90000000,
+    "amount_raw": "약 $90M",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.7 Groq (미국)\n재무\n| 연도 | 매출 | 성격 |\n{'연도': '2024', '매출': '약 $90M', '성격': '언론 보도치 (감사 재무제표 아님) [GRQ-4]'}",
+    "source_ids": [
+      "GRQ-4"
+    ],
+    "source_urls": [
+      "https://www.barrons.com/articles/nvidia-stock-price-ai-chips-groq-a0cca9ba"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "GRQ_441169fb16691652",
+    "company_id": "GRQ",
+    "company_name": "Groq",
+    "revenue_year": 2025,
+    "currency": "USD",
+    "amount": 500000000,
+    "amount_raw": "약 $500M",
+    "amount_precision": "source_rounded",
+    "metric_type": "forecast",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기\n3.7 Groq (미국)\n재무\n| 연도 | 매출 | 성격 |\n{'연도': '2025', '매출': '약 $500M', '성격': '투자자에게 제시한 당초 전망치. 확정 실적 아님 [GRQ-4][GRQ-5]'}",
+    "source_ids": [
+      "GRQ-4",
+      "GRQ-5"
+    ],
+    "source_urls": [
+      "https://www.barrons.com/articles/nvidia-stock-price-ai-chips-groq-a0cca9ba",
+      "https://www.reuters.com/business/groq-more-than-doubles-valuation-69-billion-investors-bet-ai-chips-2025-09-17/"
+    ],
+    "source_dates": [
+      "2025-09-17"
+    ],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "IHW_3d260079dc9a56dc",
+    "company_id": "IHW",
+    "company_name": "iHW",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 572730000,
+    "amount_raw": "5억 7,273만 원",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.1 iHW (아이에이치더블유, 한국)\n재무 (NICE평가정보, 사람인 경유) [IHW-3] (2차 DB)\n| 연도 | 매출 | 영업손익 | 당기순손익 |\n{'연도': '2024', '매출': '5억 7,273만 원', '영업손익': '-1억 2,126만 원', '당기순손익': '-1억 1,994만 원'}",
+    "source_ids": [
+      "IHW-3"
+    ],
+    "source_urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/M1IwRTRDSko5SjZiUDRuTkR1S2YyUT09/company_nm/%28%EC%A3%BC%29%EC%95%84%EC%9D%B4%EC%97%90%EC%9D%B4%EC%B9%98%EB%8D%94%EB%B8%94%EC%9C%A0"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "IHW_c740ef9a41a344aa",
+    "company_id": "IHW",
+    "company_name": "iHW",
+    "revenue_year": 2025,
+    "currency": null,
+    "amount": null,
+    "amount_raw": "공개 페이지에 표시 없음",
+    "amount_precision": "unknown",
+    "metric_type": "unknown",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.1 iHW (아이에이치더블유, 한국)\n재무 (NICE평가정보, 사람인 경유) [IHW-3] (2차 DB)\n| 연도 | 매출 | 영업손익 | 당기순손익 |\n{'연도': '2025', '매출': '공개 페이지에 표시 없음', '영업손익': '-34억 9,933만 원', '당기순손익': '-32억 5,425만 원'}",
+    "source_ids": [
+      "IHW-3"
+    ],
+    "source_urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/M1IwRTRDSko5SjZiUDRuTkR1S2YyUT09/company_nm/%28%EC%A3%BC%29%EC%95%84%EC%9D%B4%EC%97%90%EC%9D%B4%EC%B9%98%EB%8D%94%EB%B8%94%EC%9C%A0"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "PBS_1947ce55e9302711",
+    "company_id": "PBS",
+    "company_name": "페블스퀘어",
+    "revenue_year": 2023,
+    "currency": "KRW",
+    "amount": 53820000,
+    "amount_raw": "5,382만 원",
+    "amount_precision": "source_exact",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.2 페블스퀘어 (Pebble Square, 한국)\n재무 (NICE, 사람인 경유) [PBS-3] (2차 DB)\n| 연도 | 매출 | 영업손익 | 당기순손익 |\n{'연도': '2023', '매출': '5,382만 원', '영업손익': '-6억 4,070만 원', '당기순손익': '-4억 2,979만 원'}",
+    "source_ids": [
+      "PBS-3"
+    ],
+    "source_urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/N1FneThpWFFONlBrRytURmN0RG12dz09/company_nm/%28%EC%A3%BC%29%ED%8E%98%EB%B8%94%EC%8A%A4%ED%80%98%EC%96%B4"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "PBS_8241704f0cc74d2a",
+    "company_id": "PBS",
+    "company_name": "페블스퀘어",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 397990000,
+    "amount_raw": "3억 9,799만 원",
+    "amount_precision": "source_rounded",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.2 페블스퀘어 (Pebble Square, 한국)\n재무 (NICE, 사람인 경유) [PBS-3] (2차 DB)\n| 연도 | 매출 | 영업손익 | 당기순손익 |\n{'연도': '2024', '매출': '3억 9,799만 원', '영업손익': '-15억 2,226만 원', '당기순손익': '-7억 6,445만 원'}",
+    "source_ids": [
+      "PBS-3"
+    ],
+    "source_urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/N1FneThpWFFONlBrRytURmN0RG12dz09/company_nm/%28%EC%A3%BC%29%ED%8E%98%EB%B8%94%EC%8A%A4%ED%80%98%EC%96%B4"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "PBS_305bdfc3943e24a9",
+    "company_id": "PBS",
+    "company_name": "페블스퀘어",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 54400000,
+    "amount_raw": "5,440만 원",
+    "amount_precision": "source_exact",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.2 페블스퀘어 (Pebble Square, 한국)\n재무 (NICE, 사람인 경유) [PBS-3] (2차 DB)\n| 연도 | 매출 | 영업손익 | 당기순손익 |\n{'연도': '2025', '매출': '5,440만 원', '영업손익': '-45억 6,594만 원', '당기순손익': '-35억 5,952만 원'}",
+    "source_ids": [
+      "PBS-3"
+    ],
+    "source_urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/N1FneThpWFFONlBrRytURmN0RG12dz09/company_nm/%28%EC%A3%BC%29%ED%8E%98%EB%B8%94%EC%8A%A4%ED%80%98%EC%96%B4"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "ART_99ee21c4d8816d3e",
+    "company_id": "ART",
+    "company_name": "아티크론",
+    "revenue_year": 2023,
+    "currency": null,
+    "amount": null,
+    "amount_raw": "매출 없음",
+    "amount_precision": "unknown",
+    "metric_type": "unknown",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.3 아티크론 (Articron, 한국)\n재무 (THE VC, 출처를 금감원·중기부로 표시) [ART-4] (2차 DB)\n| 연도 | 매출 |\n{'연도': '2023', '매출': '매출 없음'}",
+    "source_ids": [
+      "ART-4"
+    ],
+    "source_urls": [
+      "https://thevc.kr/articron/financials"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "ART_c67cbdfab8378e75",
+    "company_id": "ART",
+    "company_name": "아티크론",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 65455000,
+    "amount_raw": "65,455,000원",
+    "amount_precision": "source_exact",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.3 아티크론 (Articron, 한국)\n재무 (THE VC, 출처를 금감원·중기부로 표시) [ART-4] (2차 DB)\n| 연도 | 매출 |\n{'연도': '2024', '매출': '65,455,000원'}",
+    "source_ids": [
+      "ART-4"
+    ],
+    "source_urls": [
+      "https://thevc.kr/articron/financials"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "ART_ca5bff56283085d5",
+    "company_id": "ART",
+    "company_name": "아티크론",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 421200000,
+    "amount_raw": "421,200,000원",
+    "amount_precision": "source_exact",
+    "metric_type": "reported",
+    "audit_status": "not_established",
+    "accounting_basis_raw": "4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM)\n4.3 아티크론 (Articron, 한국)\n재무 (THE VC, 출처를 금감원·중기부로 표시) [ART-4] (2차 DB)\n| 연도 | 매출 |\n{'연도': '2025', '매출': '421,200,000원'}",
+    "source_ids": [
+      "ART-4"
+    ],
+    "source_urls": [
+      "https://thevc.kr/articron/financials"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "PAN_78243aca6fcede99",
+    "company_id": "PAN",
+    "company_name": "파네시아",
+    "revenue_year": 2024,
+    "currency": "KRW",
+    "amount": 0,
+    "amount_raw": "0원",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "5. 기업별 상세 — 세그먼트 D: AI 인프라 (인터커넥트·메모리·DPU·GPU IP)\n5.1 파네시아 (Panmnesia, 한국)\n재무 (DART 감사보고서, 한울회계법인, 기재정정) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 |\n{'연도 (기수)': '2024 (3기)', '매출': '0원', '영업손실': '26.6억', '당기순손실': '25.7억'}",
+    "source_ids": [
+      "PAN-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000064"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  },
+  {
+    "chunk_id": "PAN_30ad03d5034b04de",
+    "company_id": "PAN",
+    "company_name": "파네시아",
+    "revenue_year": 2025,
+    "currency": "KRW",
+    "amount": 45454545,
+    "amount_raw": "45,454,545원 (0.45억)",
+    "amount_precision": "source_exact",
+    "metric_type": "actual",
+    "audit_status": "audited_as_stated_in_document",
+    "accounting_basis_raw": "5. 기업별 상세 — 세그먼트 D: AI 인프라 (인터커넥트·메모리·DPU·GPU IP)\n5.1 파네시아 (Panmnesia, 한국)\n재무 (DART 감사보고서, 한울회계법인, 기재정정) ✎\n| 연도 (기수) | 매출 | 영업손실 | 당기순손실 |\n{'연도 (기수)': '2025 (4기)', '매출': '45,454,545원 (0.45억)', '영업손실': '31.8억', '당기순손실': '30.8억'}",
+    "source_ids": [
+      "PAN-1"
+    ],
+    "source_urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000064"
+    ],
+    "source_dates": [],
+    "document_as_of": "2026-09-29",
+    "verified_at": null
+  }
+]

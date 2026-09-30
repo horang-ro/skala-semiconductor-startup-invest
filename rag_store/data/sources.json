@@ -1,0 +1,1774 @@
+{
+  "MOB-1": {
+    "grade": "언론",
+    "description_raw": "더벨, 이종현, \"모빌린트, AI 반도체 양산 첫해 매출 7배 증가\", 2026-04-15 — https://www.thebell.co.kr/front/newsview.asp?key=202604142143494560102221 📁",
+    "urls": [
+      "https://www.thebell.co.kr/front/newsview.asp?key=202604142143494560102221"
+    ],
+    "source_date": "2026-04-15",
+    "line": 1646,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MOB-2": {
+    "grade": "언론",
+    "description_raw": "디일렉, \"온디바이스AI NPU 스타트업 모빌린트, 올해 매출 가시화\", 2025-03-04 — https://www.thelec.kr/news/articleView.html?idxno=33378",
+    "urls": [
+      "https://www.thelec.kr/news/articleView.html?idxno=33378"
+    ],
+    "source_date": "2025-03-04",
+    "line": 1647,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MOB-3": {
+    "grade": "공식",
+    "description_raw": "Mobilint ARIES 제품 페이지 — https://www.mobilint.com/aries 📁",
+    "urls": [
+      "https://www.mobilint.com/aries"
+    ],
+    "source_date": null,
+    "line": 1648,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MOB-4": {
+    "grade": "공식",
+    "description_raw": "Mobilint REGULUS 제품 페이지 — https://www.mobilint.com/regulus 📁",
+    "urls": [
+      "https://www.mobilint.com/regulus"
+    ],
+    "source_date": null,
+    "line": 1649,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MOB-5": {
+    "grade": "언론",
+    "description_raw": "The Elec, \"Mobilint Delays Second-Generation AI Chip Production by Six Months\" (제목만 확인) — https://www.thelec.net/news/articleView.html?idxno=14177",
+    "urls": [
+      "https://www.thelec.net/news/articleView.html?idxno=14177"
+    ],
+    "source_date": null,
+    "line": 1650,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-1": {
+    "grade": "공시",
+    "description_raw": "딥엑스 감사보고서 2025.12 (삼화) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410000236 📁",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260410000236"
+    ],
+    "source_date": null,
+    "line": 1653,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-2": {
+    "grade": "공시",
+    "description_raw": "딥엑스 감사보고서 2024.12 (삼일) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250331001514 📁",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250331001514"
+    ],
+    "source_date": null,
+    "line": 1654,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-3": {
+    "grade": "공시",
+    "description_raw": "딥엑스 감사보고서 2023.12 (삼일) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240326000462 📁",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240326000462"
+    ],
+    "source_date": null,
+    "line": 1655,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-4": {
+    "grade": "공시",
+    "description_raw": "딥엑스 감사보고서 2021.12 (한울) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20220406000147 📁",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20220406000147"
+    ],
+    "source_date": null,
+    "line": 1656,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-5": {
+    "grade": "공식",
+    "description_raw": "DEEPX DX-M1 제품 페이지 — https://deepx.ai/products/dx-m1/ 📁",
+    "urls": [
+      "https://deepx.ai/products/dx-m1/"
+    ],
+    "source_date": null,
+    "line": 1657,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-6": {
+    "grade": "언론",
+    "description_raw": "WinBuzzer, \"DeepX DX-M1 AI Chip Hits 90% Yield with Samsung's 5nm Technology\", 2024-12-02 — https://winbuzzer.com/2024/12/02/deepx-dx-m1-ai-chip-hits-90-yield-with-samsungs-5nm-technology-xcxwbn/",
+    "urls": [
+      "https://winbuzzer.com/2024/12/02/deepx-dx-m1-ai-chip-hits-90-yield-with-samsungs-5nm-technology-xcxwbn/"
+    ],
+    "source_date": "2024-12-02",
+    "line": 1658,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DX-7": {
+    "grade": "2차",
+    "description_raw": "데모데이, \"딥엑스 비즈니스모델 분석\", 2026-04-14 (원 출처 미표기) — https://demoday.co.kr/bm-analysis/175",
+    "urls": [
+      "https://demoday.co.kr/bm-analysis/175"
+    ],
+    "source_date": "2026-04-14",
+    "line": 1659,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "BOS-1": {
+    "grade": "공시",
+    "description_raw": "보스반도체 감사보고서 2025.12 (현대) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260406000194 📁",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260406000194"
+    ],
+    "source_date": null,
+    "line": 1662,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "BOS-2": {
+    "grade": "언론",
+    "description_raw": "넘버스, 국정근, \"보스반도체, 기업가치 3000억 달성한 3가지 경쟁력\", 2026-04-28 — https://v.daum.net/v/20260428094756333 📁",
+    "urls": [
+      "https://v.daum.net/v/20260428094756333"
+    ],
+    "source_date": "2026-04-28",
+    "line": 1663,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "BOS-3": {
+    "grade": "공식",
+    "description_raw": "BOS Semiconductors Product — https://www.bos-semi.com/product 📁",
+    "urls": [
+      "https://www.bos-semi.com/product"
+    ],
+    "source_date": null,
+    "line": 1664,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "BOS-4": {
+    "grade": "공식",
+    "description_raw": "BOS, \"Eagle-N at Hot Chips 2026\", 2026-08-26 — https://www.bos-semi.com/post/bos-semiconductors-presents-chiplet-based-ai-accelerator-eagle-n-at-hot-chips-2026 📁",
+    "urls": [
+      "https://www.bos-semi.com/post/bos-semiconductors-presents-chiplet-based-ai-accelerator-eagle-n-at-hot-chips-2026"
+    ],
+    "source_date": "2026-08-26",
+    "line": 1665,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "BOS-5": {
+    "grade": "공식",
+    "description_raw": "PR Newswire, \"BOS and Tenstorrent Unveil Eagle-N\", 2024-12-12 — https://www.prnewswire.com/news-releases/bos-and-tenstorrent-unveil-eagle-n-industrys-first-automotive-ai-accelerator-chiplet-soc-302328727.html 📁",
+    "urls": [
+      "https://www.prnewswire.com/news-releases/bos-and-tenstorrent-unveil-eagle-n-industrys-first-automotive-ai-accelerator-chiplet-soc-302328727.html"
+    ],
+    "source_date": "2024-12-12",
+    "line": 1666,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SIMA-1": {
+    "grade": "언론",
+    "description_raw": "The AI Insider, \"SiMa.ai Raises $150M in Series C at $1.45B Valuation\", 2026-09-28 — https://theaiinsider.tech/2026/09/28/sima-ai-raises-150m-in-series-c-funding-at-1-45b-valuation-to-expand-physical-ai-platform/",
+    "urls": [
+      "https://theaiinsider.tech/2026/09/28/sima-ai-raises-150m-in-series-c-funding-at-1-45b-valuation-to-expand-physical-ai-platform/"
+    ],
+    "source_date": "2026-09-28",
+    "line": 1669,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SIMA-2": {
+    "grade": "공식",
+    "description_raw": "SiMa.ai, \"Raises $85M ... Total Funding to $355M\" (원문 미열람) — https://sima.ai/press-release/sima-ai-raises-85m-to-scale-physical-ai-bringing-total-funding-to-355m/",
+    "urls": [
+      "https://sima.ai/press-release/sima-ai-raises-85m-to-scale-physical-ai-bringing-total-funding-to-355m/"
+    ],
+    "source_date": null,
+    "line": 1670,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SIMA-3": {
+    "grade": "공식",
+    "description_raw": "Modalix MLSoC Product Brief v1.1 — https://sima.ai/wp-content/uploads/2026/06/Modalix-MLSoC-Product-Brief_v1.1.pdf 📁",
+    "urls": [
+      "https://sima.ai/wp-content/uploads/2026/06/Modalix-MLSoC-Product-Brief_v1.1.pdf"
+    ],
+    "source_date": null,
+    "line": 1671,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SIMA-4": {
+    "grade": "공식",
+    "description_raw": "SiMa.ai 블로그, MLPerf 3회 연속 결과, 2024-03 — https://sima.ai/blog/sima-secures-best-in-class-mlperf-benchmark/ 📁",
+    "urls": [
+      "https://sima.ai/blog/sima-secures-best-in-class-mlperf-benchmark/"
+    ],
+    "source_date": null,
+    "line": 1672,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "QD-1": {
+    "grade": "공식",
+    "description_raw": "Quadric 보도자료, Series C $30M, 2026-01-14 — https://quadric.ai/press-release/quadric-raises-30m-series-c-funding 📁",
+    "urls": [
+      "https://quadric.ai/press-release/quadric-raises-30m-series-c-funding"
+    ],
+    "source_date": "2026-01-14",
+    "line": 1675,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MX-1": {
+    "grade": "공식",
+    "description_raw": "PR Newswire, \"MemryX Raises $44 Million in Series B\", 2025-03-27 — https://www.prnewswire.com/news-releases/memryx-raises-44-million-in-series-b-funding-for-advanced-edge-ai-computing-302412842.html",
+    "urls": [
+      "https://www.prnewswire.com/news-releases/memryx-raises-44-million-in-series-b-funding-for-advanced-edge-ai-computing-302412842.html"
+    ],
+    "source_date": "2025-03-27",
+    "line": 1678,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MX-2": {
+    "grade": "공식",
+    "description_raw": "MX3 M.2 Module Datasheet — https://developer.memryx.com/specs/M.2_datasheet.html 📁",
+    "urls": [
+      "https://developer.memryx.com/specs/M.2_datasheet.html"
+    ],
+    "source_date": null,
+    "line": 1679,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MX-3": {
+    "grade": "제3자",
+    "description_raw": "BDTI, MemryX MX3 M.2 Hands-On Evaluation, 2025-05 — https://www.bdti.com/sites/default/files/BDTI-Independent-Report-MemryX-MX3-M2-Module.pdf 📁",
+    "urls": [
+      "https://www.bdti.com/sites/default/files/BDTI-Independent-Report-MemryX-MX3-M2-Module.pdf"
+    ],
+    "source_date": null,
+    "line": 1680,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MX-4": {
+    "grade": "언론",
+    "description_raw": "Tom's Hardware, \"MemryX launches $149 MX3 AI Accelerator Module\" — https://www.tomshardware.com/tech-industry/artificial-intelligence/memryx-launches-usd149-mx3-m-2-ai-accelerator-module-capable-of-24-tops-compute-power",
+    "urls": [
+      "https://www.tomshardware.com/tech-industry/artificial-intelligence/memryx-launches-usd149-mx3-m-2-ai-accelerator-module-capable-of-24-tops-compute-power"
+    ],
+    "source_date": null,
+    "line": 1681,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-1": {
+    "grade": "공시",
+    "description_raw": "하이퍼엑셀 감사보고서 2025.12 (삼일) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260401003532",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260401003532"
+    ],
+    "source_date": null,
+    "line": 1686,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-2": {
+    "grade": "2차",
+    "description_raw": "데모데이, \"하이퍼엑셀 비즈니스모델 분석\" — https://demoday.co.kr/bm-analysis/159",
+    "urls": [
+      "https://demoday.co.kr/bm-analysis/159"
+    ],
+    "source_date": null,
+    "line": 1687,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-3": {
+    "grade": "공식",
+    "description_raw": "Bertha 500 제품 페이지 — https://hyperaccel.ai/ha_product/bertha-500/",
+    "urls": [
+      "https://hyperaccel.ai/ha_product/bertha-500/"
+    ],
+    "source_date": null,
+    "line": 1688,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-4": {
+    "grade": "공식",
+    "description_raw": "\"Korean Startup Takes On Cost and Latency With LLM-Specific Chip\" — https://hyperaccel.ai/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/",
+    "urls": [
+      "https://hyperaccel.ai/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/"
+    ],
+    "source_date": null,
+    "line": 1689,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-5": {
+    "grade": "언론",
+    "description_raw": "Wowtale, \"Hyper Accel Raises $41 Million\", 2024-12-26 — https://en.wowtale.net/2024/12/26/228736/",
+    "urls": [
+      "https://en.wowtale.net/2024/12/26/228736/"
+    ],
+    "source_date": "2024-12-26",
+    "line": 1690,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-6": {
+    "grade": "언론",
+    "description_raw": "Chosun Biz, \"HyperAccel pursues 150 billion won Series B\", 2026-03-06 — https://biz.chosun.com/en/en-finance/2026/03/06/EVOEIPC6FBEH3KEEMSM2CRIHO4/",
+    "urls": [
+      "https://biz.chosun.com/en/en-finance/2026/03/06/EVOEIPC6FBEH3KEEMSM2CRIHO4/"
+    ],
+    "source_date": "2026-03-06",
+    "line": 1691,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-7": {
+    "grade": "공식",
+    "description_raw": "\"하이퍼엑셀, 450억 규모 K-클라우드 총괄과제 수주\" — https://hyperaccel.ai/lpu%ED%8C%B9%EB%A6%AC%EC%8A%A4-%ED%95%98%EC%9D%B4%ED%8D%BC%EC%97%91%EC%85%80-450%EC%96%B5-%EA%B7%9C%EB%AA%A8-k-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%B4%9D%EA%B4%84%EA%B3%BC%EC%A0%9C/",
+    "urls": [
+      "https://hyperaccel.ai/lpu%ED%8C%B9%EB%A6%AC%EC%8A%A4-%ED%95%98%EC%9D%B4%ED%8D%BC%EC%97%91%EC%85%80-450%EC%96%B5-%EA%B7%9C%EB%AA%A8-k-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%B4%9D%EA%B4%84%EA%B3%BC%EC%A0%9C/"
+    ],
+    "source_date": null,
+    "line": 1692,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-8": {
+    "grade": "2차",
+    "description_raw": "(신뢰 낮음) \"A Korean Startup Claims It Can Beat Nvidia by 5x\" — https://www.rustwood.au/pages/2026-03-18-hyper-accel-bertha-500-ai-chip-nvidia.html",
+    "urls": [
+      "https://www.rustwood.au/pages/2026-03-18-hyper-accel-bertha-500-ai-chip-nvidia.html"
+    ],
+    "source_date": "2026-03-18",
+    "line": 1693,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-9": {
+    "grade": "공식",
+    "description_raw": "CEO 인터뷰, \"targets Nvidia-dominated AI inference market with 2027 chip launch\" — https://hyperaccel.ai/korean-startup-targets-nvidia-dominated-ai-inference-market-with-2027-chip-launch/",
+    "urls": [
+      "https://hyperaccel.ai/korean-startup-targets-nvidia-dominated-ai-inference-market-with-2027-chip-launch/"
+    ],
+    "source_date": null,
+    "line": 1694,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "HA-10": {
+    "grade": "공식",
+    "description_raw": "\"HyperAccel Raises 55 Billion KRW in Series A\" — https://hyperaccel.ai/hyperaccel-raises-55-billion-krw-in-series-a-funding-for-llm-focused-ai-semiconductor-development/",
+    "urls": [
+      "https://hyperaccel.ai/hyperaccel-raises-55-billion-krw-in-series-a-funding-for-llm-focused-ai-semiconductor-development/"
+    ],
+    "source_date": null,
+    "line": 1695,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-1": {
+    "grade": "공시",
+    "description_raw": "리벨리온 감사보고서 2025.12 별도 (안진) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414001298 (연결: rcpNo=20260414001300)",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414001298"
+    ],
+    "source_date": null,
+    "line": 1698,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-2": {
+    "grade": "공시",
+    "description_raw": "리벨리온 감사보고서 2024.12 (안진) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250415000334 / 2023.12 (현대) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240411001043",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250415000334",
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240411001043"
+    ],
+    "source_date": null,
+    "line": 1699,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-3": {
+    "grade": "2차",
+    "description_raw": "Synopsys 블로그, \"Rebellions Redefines Energy-Efficient AI for Data Centers\" — https://www.synopsys.com/blogs/chip-design/energy-efficient-ai-accelerator-data-centers.html",
+    "urls": [
+      "https://www.synopsys.com/blogs/chip-design/energy-efficient-ai-accelerator-data-centers.html"
+    ],
+    "source_date": null,
+    "line": 1700,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-4": {
+    "grade": "공식",
+    "description_raw": "리벨리온 뉴스룸, \"REBEL-Quad UCIe and 144GB HBM3E Accelerator at Hot Chips 2025\" — https://kr.rebellions.ai/newsroom/rebellions-rebel-quad-ucie-and-144gb-hbm3e-accelerator-at-hot-chips-2025/",
+    "urls": [
+      "https://kr.rebellions.ai/newsroom/rebellions-rebel-quad-ucie-and-144gb-hbm3e-accelerator-at-hot-chips-2025/"
+    ],
+    "source_date": null,
+    "line": 1701,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-5": {
+    "grade": "공식",
+    "description_raw": "리벨리온, \"Rebellions Debuts REBEL-Quad at Hot Chips 2025\" — https://rebellions.ai/newsroom/rebellions-debuts-rebel-quad-at-hot-chips-2025-breaking-ais-energy-tax-with-high-performance-chiplet-innovation/",
+    "urls": [
+      "https://rebellions.ai/newsroom/rebellions-debuts-rebel-quad-at-hot-chips-2025-breaking-ais-energy-tax-with-high-performance-chiplet-innovation/"
+    ],
+    "source_date": null,
+    "line": 1702,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-6": {
+    "grade": "공식",
+    "description_raw": "REBEL-Quad White Paper — https://rebellions.ai/wp-content/uploads/2025/05/White-Paper_Issue6_REBEL-Quad-v1.0.pdf",
+    "urls": [
+      "https://rebellions.ai/wp-content/uploads/2025/05/White-Paper_Issue6_REBEL-Quad-v1.0.pdf"
+    ],
+    "source_date": null,
+    "line": 1703,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-7": {
+    "grade": "2차",
+    "description_raw": "Spheron, \"Rebellions AI Chip vs NVIDIA GPUs\" — https://www.spheron.network/blog/rebellions-ai-chip-vs-nvidia-gpus-korea-inference-2026/",
+    "urls": [
+      "https://www.spheron.network/blog/rebellions-ai-chip-vs-nvidia-gpus-korea-inference-2026/"
+    ],
+    "source_date": null,
+    "line": 1704,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-8": {
+    "grade": "2차",
+    "description_raw": "AIMultiple, \"Top 30+ AI Chip Makers\" — https://aimultiple.com/ai-chip-makers",
+    "urls": [
+      "https://aimultiple.com/ai-chip-makers"
+    ],
+    "source_date": null,
+    "line": 1705,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-9": {
+    "grade": "2차",
+    "description_raw": "(신뢰 낮음) rustwood.au — https://www.rustwood.au/pages/2026-03-18-hyper-accel-bertha-500-ai-chip-nvidia.html",
+    "urls": [
+      "https://www.rustwood.au/pages/2026-03-18-hyper-accel-bertha-500-ai-chip-nvidia.html"
+    ],
+    "source_date": "2026-03-18",
+    "line": 1706,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-10": {
+    "grade": "언론",
+    "description_raw": "ServeTheHome, REBEL-Quad at Hot Chips 2025 — https://www.servethehome.com/rebellions-rebel-quad-ucie-and-144gb-hbm3e-accelerator-at-hot-chips-2025/ (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://www.servethehome.com/rebellions-rebel-quad-ucie-and-144gb-hbm3e-accelerator-at-hot-chips-2025/"
+    ],
+    "source_date": null,
+    "line": 1707,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-11": {
+    "grade": "언론",
+    "description_raw": "Jon Peddie Research, \"Rebellions bets on memory-centric AI inference\" — https://www.jonpeddie.com/news/rebellions-bets-on-memory-centric-ai-inference/ (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://www.jonpeddie.com/news/rebellions-bets-on-memory-centric-ai-inference/"
+    ],
+    "source_date": null,
+    "line": 1708,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RBL-12": {
+    "grade": "공식",
+    "description_raw": "리벨리온 Resources — https://kr.rebellions.ai/resources/ (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://kr.rebellions.ai/resources/"
+    ],
+    "source_date": null,
+    "line": 1709,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "FUR-1": {
+    "grade": "공시",
+    "description_raw": "퓨리오사에이아이 감사보고서 2025.12 (삼일) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414002647",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260414002647"
+    ],
+    "source_date": null,
+    "line": 1712,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "FUR-2": {
+    "grade": "공시",
+    "description_raw": "퓨리오사에이아이 감사보고서 2024.12 (삼일) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430000607",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250430000607"
+    ],
+    "source_date": null,
+    "line": 1713,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "FUR-3": {
+    "grade": "공시",
+    "description_raw": "퓨리오사에이아이 감사보고서 2023.12 — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240401003596 / 2022.12 — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20230406000401",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20240401003596",
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20230406000401"
+    ],
+    "source_date": null,
+    "line": 1714,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "FUR-4": {
+    "grade": "2차",
+    "description_raw": "Artificial Curiosity Labs, \"The AI Chips After NVIDIA\", 2026-08-04 — https://artificialcuriositylabs.ai/posts/2026-08-04-ai-chips-after-nvidia/",
+    "urls": [
+      "https://artificialcuriositylabs.ai/posts/2026-08-04-ai-chips-after-nvidia/"
+    ],
+    "source_date": "2026-08-04",
+    "line": 1715,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "FUR-5": {
+    "grade": "2차",
+    "description_raw": "New Market Pitch, \"AI Chips: what are startups building now?\" — https://newmarketpitch.com/blogs/news/ai-chip-startup-builds",
+    "urls": [
+      "https://newmarketpitch.com/blogs/news/ai-chip-startup-builds"
+    ],
+    "source_date": null,
+    "line": 1716,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DM-1": {
+    "grade": "2차",
+    "description_raw": "IPO Club, \"d-Matrix Stock Price, Valuation & IPO Outlook 2026\" — https://www.ipo.club/deals/d-matrix",
+    "urls": [
+      "https://www.ipo.club/deals/d-matrix"
+    ],
+    "source_date": null,
+    "line": 1719,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DM-2": {
+    "grade": "2차",
+    "description_raw": "Medium, \"Forget the Hyperscalers: Meet the 8 Deep Tech Architects\" — https://medium.com/@dalio8/forget-the-hyperscalers-meet-the-8-deep-tech-architects-who-are-actually-building-ais-next-era-759c21232339",
+    "urls": [
+      "https://medium.com/@dalio8/forget-the-hyperscalers-meet-the-8-deep-tech-architects-who-are-actually-building-ais-next-era-759c21232339"
+    ],
+    "source_date": null,
+    "line": 1720,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DM-3": {
+    "grade": "2차",
+    "description_raw": "AIMultiple — https://aimultiple.com/ai-chip-makers",
+    "urls": [
+      "https://aimultiple.com/ai-chip-makers"
+    ],
+    "source_date": null,
+    "line": 1721,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DM-4": {
+    "grade": "2차",
+    "description_raw": "Artificial Curiosity Labs — https://artificialcuriositylabs.ai/posts/2026-08-04-ai-chips-after-nvidia/",
+    "urls": [
+      "https://artificialcuriositylabs.ai/posts/2026-08-04-ai-chips-after-nvidia/"
+    ],
+    "source_date": "2026-08-04",
+    "line": 1722,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "DM-5": {
+    "grade": "2차",
+    "description_raw": "New Market Pitch — https://newmarketpitch.com/blogs/news/ai-chip-startup-builds",
+    "urls": [
+      "https://newmarketpitch.com/blogs/news/ai-chip-startup-builds"
+    ],
+    "source_date": null,
+    "line": 1723,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ETC-1": {
+    "grade": "2차",
+    "description_raw": "Compute Compass, \"191 AI Accelerator Companies in 2026\" — https://computecompass.com/technologies/ai-accelerators/",
+    "urls": [
+      "https://computecompass.com/technologies/ai-accelerators/"
+    ],
+    "source_date": null,
+    "line": 1726,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "POS-1": {
+    "grade": "2차",
+    "description_raw": "ValueAdd VC, \"Positron AI Valuation: $875M Series C at $5B\" — https://valueaddvc.com/blog/positron-ai-valuation-2026-875m-series-c-5b-inference-chip-startup",
+    "urls": [
+      "https://valueaddvc.com/blog/positron-ai-valuation-2026-875m-series-c-5b-inference-chip-startup"
+    ],
+    "source_date": null,
+    "line": 1730,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "POS-2": {
+    "grade": "2차",
+    "description_raw": "EdgeChat, Positron AI — https://www.edgechat.ai/positron-ai",
+    "urls": [
+      "https://www.edgechat.ai/positron-ai"
+    ],
+    "source_date": null,
+    "line": 1731,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "POS-3": {
+    "grade": "공식",
+    "description_raw": "Positron AI About — https://www.positron.ai/about (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://www.positron.ai/about"
+    ],
+    "source_date": null,
+    "line": 1732,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "POS-4": {
+    "grade": "2차",
+    "description_raw": "VC Tracker, \"Positron AI $875M Series C\" — https://venturecapitaltracker.com/2026-positron-ai-875m-series-c-5b-nea (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://venturecapitaltracker.com/2026-positron-ai-875m-series-c-5b-nea"
+    ],
+    "source_date": null,
+    "line": 1733,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "POS-5": {
+    "grade": "2차",
+    "description_raw": "Dubai AI Finance, \"Positron DIFC\" — https://dubaiaifinance.com/positron-difc-ai-chip-firm-expands-to-dubai (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://dubaiaifinance.com/positron-difc-ai-chip-firm-expands-to-dubai"
+    ],
+    "source_date": null,
+    "line": 1734,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-1": {
+    "grade": "공식",
+    "description_raw": "\"What is a Language Processing Unit?\" — https://groq.com/blog/the-groq-lpu-explained",
+    "urls": [
+      "https://groq.com/blog/the-groq-lpu-explained"
+    ],
+    "source_date": null,
+    "line": 1737,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-2": {
+    "grade": "공식",
+    "description_raw": "Groq–NVIDIA 비독점 라이선스 발표 — https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale",
+    "urls": [
+      "https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale"
+    ],
+    "source_date": null,
+    "line": 1738,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-3": {
+    "grade": "공식",
+    "description_raw": "GroqCloud — https://groq.com/",
+    "urls": [
+      "https://groq.com/"
+    ],
+    "source_date": null,
+    "line": 1739,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-4": {
+    "grade": "언론",
+    "description_raw": "Barron's (2024·2025 매출 인용) — https://www.barrons.com/articles/nvidia-stock-price-ai-chips-groq-a0cca9ba",
+    "urls": [
+      "https://www.barrons.com/articles/nvidia-stock-price-ai-chips-groq-a0cca9ba"
+    ],
+    "source_date": null,
+    "line": 1740,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-5": {
+    "grade": "언론",
+    "description_raw": "Reuters, 2025-09-17 — https://www.reuters.com/business/groq-more-than-doubles-valuation-69-billion-investors-bet-ai-chips-2025-09-17/",
+    "urls": [
+      "https://www.reuters.com/business/groq-more-than-doubles-valuation-69-billion-investors-bet-ai-chips-2025-09-17/"
+    ],
+    "source_date": "2025-09-17",
+    "line": 1741,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-6": {
+    "grade": "공식",
+    "description_raw": "사우디 $1.5B 확장 발표 — https://groq.com/newsroom/saudi-arabia-announces-1-5-billion-expansion-to-fuel-ai-powered-economy-with-ai-tech-leader-groq",
+    "urls": [
+      "https://groq.com/newsroom/saudi-arabia-announces-1-5-billion-expansion-to-fuel-ai-powered-economy-with-ai-tech-leader-groq"
+    ],
+    "source_date": null,
+    "line": 1742,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "GRQ-7": {
+    "grade": "공식",
+    "description_raw": "LPU 원문 PDF (조사 환경에서 본문 재확인 실패) — https://groq.com/wp-content/uploads/2024/07/GroqThoughts_WhatIsALPU-vF.pdf",
+    "urls": [
+      "https://groq.com/wp-content/uploads/2024/07/GroqThoughts_WhatIsALPU-vF.pdf"
+    ],
+    "source_date": null,
+    "line": 1743,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SN-1": {
+    "grade": "공식",
+    "description_raw": "Dataflow Architecture — https://sambanova.ai/products/dataflow-architecture",
+    "urls": [
+      "https://sambanova.ai/products/dataflow-architecture"
+    ],
+    "source_date": null,
+    "line": 1746,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SN-2": {
+    "grade": "학술·특허",
+    "description_raw": "SN40L 논문 (arXiv 2405.07518, 자사 저자) — https://arxiv.org/abs/2405.07518 (PDF: https://arxiv.org/pdf/2405.07518)",
+    "urls": [
+      "https://arxiv.org/abs/2405.07518",
+      "https://arxiv.org/pdf/2405.07518"
+    ],
+    "source_date": null,
+    "line": 1747,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SN-3": {
+    "grade": "공식",
+    "description_raw": "SambaNova 2.0 제품 포트폴리오 — https://sambanova.ai/blog/sambanova-2.0-build-with-relentless-intelligence",
+    "urls": [
+      "https://sambanova.ai/blog/sambanova-2.0-build-with-relentless-intelligence"
+    ],
+    "source_date": null,
+    "line": 1748,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "SN-4": {
+    "grade": "언론",
+    "description_raw": "Reuters, 2026-04-01 (Intel 투자, 회사 답변) — https://www.reuters.com/business/intel-looks-put-millions-more-into-sambanova-startup-chaired-by-ceo-tan-2026-04-01/",
+    "urls": [
+      "https://www.reuters.com/business/intel-looks-put-millions-more-into-sambanova-startup-chaired-by-ceo-tan-2026-04-01/"
+    ],
+    "source_date": "2026-04-01",
+    "line": 1749,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-1": {
+    "grade": "공식",
+    "description_raw": "Blackhole 개발자 제품 출시 — https://tenstorrent.com/en/newsroom/tenstorrent-launches-blackhole-developer-products-at-tenstorrent-dev-day",
+    "urls": [
+      "https://tenstorrent.com/en/newsroom/tenstorrent-launches-blackhole-developer-products-at-tenstorrent-dev-day"
+    ],
+    "source_date": null,
+    "line": 1752,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-2": {
+    "grade": "공식",
+    "description_raw": "하드웨어 카드 — https://tenstorrent.com/hardware/cards",
+    "urls": [
+      "https://tenstorrent.com/hardware/cards"
+    ],
+    "source_date": null,
+    "line": 1753,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-3": {
+    "grade": "공식",
+    "description_raw": "GitHub (소스코드·ISA) — https://github.com/tenstorrent",
+    "urls": [
+      "https://github.com/tenstorrent"
+    ],
+    "source_date": null,
+    "line": 1754,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-4": {
+    "grade": "공식",
+    "description_raw": "2026 시스템 발표 — https://tenstorrent.com/newsroom/tenstorrent-enables-ai-at-scale-with-industry-leading-performance",
+    "urls": [
+      "https://tenstorrent.com/newsroom/tenstorrent-enables-ai-at-scale-with-industry-leading-performance"
+    ],
+    "source_date": null,
+    "line": 1755,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-5": {
+    "grade": "공식",
+    "description_raw": "Series D 발표 (URL 제목: $693M, 삼성증권·AFW Partners 리드) — https://tenstorrent.com/en/newsroom/tenstorrent-closes-693m-of-series-d-funding-led-by-samsung-securities-and-afw-partners",
+    "urls": [
+      "https://tenstorrent.com/en/newsroom/tenstorrent-closes-693m-of-series-d-funding-led-by-samsung-securities-and-afw-partners"
+    ],
+    "source_date": null,
+    "line": 1756,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-6": {
+    "grade": "학술·특허",
+    "description_raw": "Grayskull 행렬곱 독립 실험 (arXiv 2505.06085) — https://arxiv.org/abs/2505.06085",
+    "urls": [
+      "https://arxiv.org/abs/2505.06085"
+    ],
+    "source_date": null,
+    "line": 1757,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "TT-7": {
+    "grade": "공식",
+    "description_raw": "개발 문서 — https://docs.tenstorrent.com/ (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://docs.tenstorrent.com/"
+    ],
+    "source_date": null,
+    "line": 1758,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MATX-1": {
+    "grade": "공식",
+    "description_raw": "\"MatX One and our Series B\" — https://matx.com/research/series_b",
+    "urls": [
+      "https://matx.com/research/series_b"
+    ],
+    "source_date": null,
+    "line": 1761,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MATX-2": {
+    "grade": "공식",
+    "description_raw": "회사·제품 — https://matx.com/",
+    "urls": [
+      "https://matx.com/"
+    ],
+    "source_date": null,
+    "line": 1762,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MATX-3": {
+    "grade": "공식",
+    "description_raw": "기술 연구 목록 — https://matx.com/research",
+    "urls": [
+      "https://matx.com/research"
+    ],
+    "source_date": null,
+    "line": 1763,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MATX-4": {
+    "grade": "학술·특허",
+    "description_raw": "US20260056739A1 (Large Systolic Arrays) — https://patents.google.com/patent/US20260056739A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20260056739A1/en"
+    ],
+    "source_date": null,
+    "line": 1764,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MATX-5": {
+    "grade": "학술·특허",
+    "description_raw": "US12632219B2 (Quantization and Low Precision) — https://patents.google.com/patent/US12632219B2/en",
+    "urls": [
+      "https://patents.google.com/patent/US12632219B2/en"
+    ],
+    "source_date": null,
+    "line": 1765,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RIV-1": {
+    "grade": "언론",
+    "description_raw": "Reuters, \"Startup Rivos raises $250 million\", 2024-04-16 — https://www.reuters.com/technology/startup-rivos-raises-250-million-develop-risc-v-ai-chips-2024-04-16/",
+    "urls": [
+      "https://www.reuters.com/technology/startup-rivos-raises-250-million-develop-risc-v-ai-chips-2024-04-16/"
+    ],
+    "source_date": "2024-04-16",
+    "line": 1768,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RIV-2": {
+    "grade": "학술·특허",
+    "description_raw": "WO2025250820A1 (분기 발산) — https://patents.google.com/patent/WO2025250820A1/en",
+    "urls": [
+      "https://patents.google.com/patent/WO2025250820A1/en"
+    ],
+    "source_date": null,
+    "line": 1769,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RIV-3": {
+    "grade": "공식",
+    "description_raw": "Rivos GitHub — https://github.com/rivosinc",
+    "urls": [
+      "https://github.com/rivosinc"
+    ],
+    "source_date": null,
+    "line": 1770,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RIV-4": {
+    "grade": "언론",
+    "description_raw": "Reuters, Meta의 Rivos 인수, 2025-09-30 — https://www.reuters.com/business/meta-buy-chip-startup-rivos-ai-effort-source-says-2025-09-30/",
+    "urls": [
+      "https://www.reuters.com/business/meta-buy-chip-startup-rivos-ai-effort-source-says-2025-09-30/"
+    ],
+    "source_date": "2025-09-30",
+    "line": 1771,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "IHW-1": {
+    "grade": "언론",
+    "description_raw": "한국경제, 2026-08-20 — https://www.hankyung.com/article/202608200902r",
+    "urls": [
+      "https://www.hankyung.com/article/202608200902r"
+    ],
+    "source_date": "2026-08-20",
+    "line": 1776,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "IHW-2": {
+    "grade": "언론",
+    "description_raw": "한국일보, 2026-08-19 — https://www.hankookilbo.com/news/article/A2026081915440002141",
+    "urls": [
+      "https://www.hankookilbo.com/news/article/A2026081915440002141"
+    ],
+    "source_date": "2026-08-19",
+    "line": 1777,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "IHW-3": {
+    "grade": "2차 DB",
+    "description_raw": "사람인 (NICE평가정보) 재무 — https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/M1IwRTRDSko5SjZiUDRuTkR1S2YyUT09/company_nm/%28%EC%A3%BC%29%EC%95%84%EC%9D%B4%EC%97%90%EC%9D%B4%EC%B9%98%EB%8D%94%EB%B8%94%EC%9C%A0",
+    "urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/M1IwRTRDSko5SjZiUDRuTkR1S2YyUT09/company_nm/%28%EC%A3%BC%29%EC%95%84%EC%9D%B4%EC%97%90%EC%9D%B4%EC%B9%98%EB%8D%94%EB%B8%94%EC%9C%A0"
+    ],
+    "source_date": null,
+    "line": 1778,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PBS-1": {
+    "grade": "공식",
+    "description_raw": "공식 홈페이지 — https://pebble-square.com/",
+    "urls": [
+      "https://pebble-square.com/"
+    ],
+    "source_date": null,
+    "line": 1781,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PBS-2": {
+    "grade": "공식",
+    "description_raw": "회사 뉴스 (KGCCI Innovation Awards) — https://pebble-square.com/en/41_en/15?sca=News",
+    "urls": [
+      "https://pebble-square.com/en/41_en/15?sca=News"
+    ],
+    "source_date": null,
+    "line": 1782,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PBS-3": {
+    "grade": "2차 DB",
+    "description_raw": "사람인 (NICE) 재무 — https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/N1FneThpWFFONlBrRytURmN0RG12dz09/company_nm/%28%EC%A3%BC%29%ED%8E%98%EB%B8%94%EC%8A%A4%ED%80%98%EC%96%B4",
+    "urls": [
+      "https://www.saramin.co.kr/zf_user/company-info/view-inner-finance/csn/N1FneThpWFFONlBrRytURmN0RG12dz09/company_nm/%28%EC%A3%BC%29%ED%8E%98%EB%B8%94%EC%8A%A4%ED%80%98%EC%96%B4"
+    ],
+    "source_date": null,
+    "line": 1783,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ART-1": {
+    "grade": "공식",
+    "description_raw": "Company — https://articron.com/company",
+    "urls": [
+      "https://articron.com/company"
+    ],
+    "source_date": null,
+    "line": 1786,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ART-2": {
+    "grade": "공식",
+    "description_raw": "Pre-A 30억 뉴스 — https://articron.com/news/30-a-ai-ip",
+    "urls": [
+      "https://articron.com/news/30-a-ai-ip"
+    ],
+    "source_date": null,
+    "line": 1787,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ART-3": {
+    "grade": "공식",
+    "description_raw": "Products — https://articron.com/products",
+    "urls": [
+      "https://articron.com/products"
+    ],
+    "source_date": null,
+    "line": 1788,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ART-4": {
+    "grade": "2차 DB",
+    "description_raw": "THE VC 재무 — https://thevc.kr/articron/financials",
+    "urls": [
+      "https://thevc.kr/articron/financials"
+    ],
+    "source_date": null,
+    "line": 1789,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-1": {
+    "grade": "공식",
+    "description_raw": "Series A $21.7M, 2022-12-14 — https://www.enchargeai.com/news-and-publications/encharge-ai-launches-with-21-7m-series-a-to-enable-edge-ai-at-scale",
+    "urls": [
+      "https://www.enchargeai.com/news-and-publications/encharge-ai-launches-with-21-7m-series-a-to-enable-edge-ai-at-scale"
+    ],
+    "source_date": "2022-12-14",
+    "line": 1792,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-2": {
+    "grade": "언론",
+    "description_raw": "TechCrunch, Series B, 2025-02-13 — https://techcrunch.com/2025/02/13/encharge-raises-100m-to-accelerate-ai-using-analog-chips/",
+    "urls": [
+      "https://techcrunch.com/2025/02/13/encharge-raises-100m-to-accelerate-ai-using-analog-chips/"
+    ],
+    "source_date": "2025-02-13",
+    "line": 1793,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-3": {
+    "grade": "2차 DB",
+    "description_raw": "CB Insights — https://www.cbinsights.com/company/encharge-ai/financials",
+    "urls": [
+      "https://www.cbinsights.com/company/encharge-ai/financials"
+    ],
+    "source_date": null,
+    "line": 1794,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-4": {
+    "grade": "2차 DB",
+    "description_raw": "Forge (2026 Series C 표기) — https://forgeglobal.com/encharge-ai_stock/",
+    "urls": [
+      "https://forgeglobal.com/encharge-ai_stock/"
+    ],
+    "source_date": null,
+    "line": 1795,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-5": {
+    "grade": "공식",
+    "description_raw": "Technology — https://www.enchargeai.com/technology",
+    "urls": [
+      "https://www.enchargeai.com/technology"
+    ],
+    "source_date": null,
+    "line": 1796,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-6": {
+    "grade": "공식",
+    "description_raw": "홈페이지 — https://www.enchargeai.com/",
+    "urls": [
+      "https://www.enchargeai.com/"
+    ],
+    "source_date": null,
+    "line": 1797,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ENC-7": {
+    "grade": "학술·특허",
+    "description_raw": "Princeton, 64-tile 2.4Mb IMC CNN Accelerator — https://collaborate.princeton.edu/en/publications/a-64-tile-24-mb-in-memory-computing-cnn-accelerator-employing-cha/",
+    "urls": [
+      "https://collaborate.princeton.edu/en/publications/a-64-tile-24-mb-in-memory-computing-cnn-accelerator-employing-cha/"
+    ],
+    "source_date": null,
+    "line": 1798,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-1": {
+    "grade": "공식",
+    "description_raw": "About — https://rain.ai/about",
+    "urls": [
+      "https://rain.ai/about"
+    ],
+    "source_date": null,
+    "line": 1801,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-2": {
+    "grade": "공식",
+    "description_raw": "Series A $25M — https://rain.ai/blog/rain-ai-raises-25-million-series-a",
+    "urls": [
+      "https://rain.ai/blog/rain-ai-raises-25-million-series-a"
+    ],
+    "source_date": null,
+    "line": 1802,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-3": {
+    "grade": "2차 DB",
+    "description_raw": "CB Insights — https://www.cbinsights.com/company/rain-neuromorphics/financials",
+    "urls": [
+      "https://www.cbinsights.com/company/rain-neuromorphics/financials"
+    ],
+    "source_date": null,
+    "line": 1803,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-4": {
+    "grade": "학술·특허",
+    "description_raw": "US20240143541A1 — https://patents.google.com/patent/US20240143541A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20240143541A1/en"
+    ],
+    "source_date": null,
+    "line": 1804,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-5": {
+    "grade": "학술·특허",
+    "description_raw": "US20250028674A1 — https://patents.google.com/patent/US20250028674A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20250028674A1/en"
+    ],
+    "source_date": null,
+    "line": 1805,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-6": {
+    "grade": "학술·특허",
+    "description_raw": "US20250045224A1 — https://patents.google.com/patent/US20250045224A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20250045224A1/en"
+    ],
+    "source_date": null,
+    "line": 1806,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-7": {
+    "grade": "학술·특허",
+    "description_raw": "US20250117441A1 — https://patents.google.com/patent/US20250117441A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20250117441A1/en"
+    ],
+    "source_date": null,
+    "line": 1807,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "RAIN-8": {
+    "grade": "언론",
+    "description_raw": "The Information, OpenAI의 Rain 특허 인수 — https://www.theinformation.com/newsletters/ai-agenda/openai-acquired-patents-altman-backed-ai-chip-startup-following-failed-acquisition",
+    "urls": [
+      "https://www.theinformation.com/newsletters/ai-agenda/openai-acquired-patents-altman-backed-ai-chip-startup-following-failed-acquisition"
+    ],
+    "source_date": null,
+    "line": 1808,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MYT-1": {
+    "grade": "공식",
+    "description_raw": "$125M 발표, 2025-12-17 — https://www.mythic.ai/newsroom/blog-post-title-three-y3peb-4lwnz-5pkhf-baylp",
+    "urls": [
+      "https://www.mythic.ai/newsroom/blog-post-title-three-y3peb-4lwnz-5pkhf-baylp"
+    ],
+    "source_date": "2025-12-17",
+    "line": 1811,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MYT-2": {
+    "grade": "2차 DB",
+    "description_raw": "CB Insights — https://www.cbinsights.com/company/isocline-engineering-corp/financials",
+    "urls": [
+      "https://www.cbinsights.com/company/isocline-engineering-corp/financials"
+    ],
+    "source_date": null,
+    "line": 1812,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MYT-3": {
+    "grade": "공식",
+    "description_raw": "Honda 공동 개발 발표 — https://global.honda/en/topics/2026/c_2026-02-04eng.html",
+    "urls": [
+      "https://global.honda/en/topics/2026/c_2026-02-04eng.html"
+    ],
+    "source_date": null,
+    "line": 1813,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MYT-4": {
+    "grade": "공식",
+    "description_raw": "Videantis 인수 — https://www.mythic.ai/newsroom/Blog%20Post%20Title%20One-3zaa9-zlxng-67tfc-lbgbx",
+    "urls": [
+      "https://www.mythic.ai/newsroom/Blog%20Post%20Title%20One-3zaa9-zlxng-67tfc-lbgbx"
+    ],
+    "source_date": null,
+    "line": 1814,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MYT-5": {
+    "grade": "2차",
+    "description_raw": "DCVC 투자자 자료 (원자료에 URL 없음)",
+    "urls": [],
+    "source_date": null,
+    "line": 1815,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-1": {
+    "grade": "공시",
+    "description_raw": "파네시아 [기재정정]감사보고서 2025.12 (한울) — https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000064",
+    "urls": [
+      "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260526000064"
+    ],
+    "source_date": null,
+    "line": 1820,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-2": {
+    "grade": "공식",
+    "description_raw": "CES 2026 발표 — https://panmnesia.com/news/en/2026-01-09-ces-2026/",
+    "urls": [
+      "https://panmnesia.com/news/en/2026-01-09-ces-2026/"
+    ],
+    "source_date": "2026-01-09",
+    "line": 1821,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-3": {
+    "grade": "학술·특허",
+    "description_raw": "ISCA 2026 발표 — https://panmnesia.com/news/en/2026-07-03-panmnesia-isca2026-eng/",
+    "urls": [
+      "https://panmnesia.com/news/en/2026-07-03-panmnesia-isca2026-eng/"
+    ],
+    "source_date": "2026-07-03",
+    "line": 1822,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-4": {
+    "grade": "공식",
+    "description_raw": "Meta 공저 NREE 논문 소개 — https://panmnesia.com/news/en/2026-09-08-panmnesia-meta-nree-eng/",
+    "urls": [
+      "https://panmnesia.com/news/en/2026-09-08-panmnesia-meta-nree-eng/"
+    ],
+    "source_date": "2026-09-08",
+    "line": 1823,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-5": {
+    "grade": "학술·특허",
+    "description_raw": "Nature Reviews Electrical Engineering — https://www.nature.com/articles/s44287-026-00315-5",
+    "urls": [
+      "https://www.nature.com/articles/s44287-026-00315-5"
+    ],
+    "source_date": null,
+    "line": 1824,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-6": {
+    "grade": "공식",
+    "description_raw": "UALink·Ethernet 과제 발표, 2026-04-09 — https://panmnesia.com/news/en/2026-04-09-panmnesia-ualink-ethernet-eng/",
+    "urls": [
+      "https://panmnesia.com/news/en/2026-04-09-panmnesia-ualink-ethernet-eng/"
+    ],
+    "source_date": "2026-04-09",
+    "line": 1825,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-7": {
+    "grade": "공식",
+    "description_raw": "2025 R&D 과제 $30M — https://panmnesia.com/news/en/2025-05-08-project-funding-en/",
+    "urls": [
+      "https://panmnesia.com/news/en/2025-05-08-project-funding-en/"
+    ],
+    "source_date": "2025-05-08",
+    "line": 1826,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-8": {
+    "grade": "학술·특허",
+    "description_raw": "US 12,693,987 B2 — https://patentsgazette.uspto.gov/week30/OG/html/1548-4/US12693987-20260728.html",
+    "urls": [
+      "https://patentsgazette.uspto.gov/week30/OG/html/1548-4/US12693987-20260728.html"
+    ],
+    "source_date": null,
+    "line": 1827,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-9": {
+    "grade": "공식",
+    "description_raw": "Openchip MOU — https://panmnesia.com/news/en/2026-03-05-panmnesia-openchip-mou-eng/",
+    "urls": [
+      "https://panmnesia.com/news/en/2026-03-05-panmnesia-openchip-mou-eng/"
+    ],
+    "source_date": "2026-03-05",
+    "line": 1828,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-10": {
+    "grade": "공식",
+    "description_raw": "회사 연혁 — https://panmnesia.com/about/?active=about_vision",
+    "urls": [
+      "https://panmnesia.com/about/?active=about_vision"
+    ],
+    "source_date": null,
+    "line": 1829,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-11": {
+    "grade": "공식",
+    "description_raw": "기술 리포트 — https://panmnesia.com/technology/tech-reports/",
+    "urls": [
+      "https://panmnesia.com/technology/tech-reports/"
+    ],
+    "source_date": null,
+    "line": 1830,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "PAN-12": {
+    "grade": "공식",
+    "description_raw": "논문 목록 — https://panmnesia.com/technology/pub/",
+    "urls": [
+      "https://panmnesia.com/technology/pub/"
+    ],
+    "source_date": null,
+    "line": 1831,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-1": {
+    "grade": "공식",
+    "description_raw": "회사·SDK — https://www.xcena.com/",
+    "urls": [
+      "https://www.xcena.com/"
+    ],
+    "source_date": null,
+    "line": 1835,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-2": {
+    "grade": "공식",
+    "description_raw": "Hot Chips 2026 MX1 발표 — https://www.businesswire.com/news/home/20260825275952/en/XCENA-Details-MX1-Architecture-Integrating-Memory-Expansion-and-Near-Memory-Computing-at-Hot-Chips-2026",
+    "urls": [
+      "https://www.businesswire.com/news/home/20260825275952/en/XCENA-Details-MX1-Architecture-Integrating-Memory-Expansion-and-Near-Memory-Computing-at-Hot-Chips-2026"
+    ],
+    "source_date": null,
+    "line": 1836,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-3": {
+    "grade": "공식",
+    "description_raw": "FMS 2026 MX1 양산 라인업 — https://www.businesswire.com/news/home/20260731455701/en/XCENA-Unveils-MX1-Production-Lineup-to-Accelerate-Push-Into-Hyperscale-AI-Infrastructure",
+    "urls": [
+      "https://www.businesswire.com/news/home/20260731455701/en/XCENA-Unveils-MX1-Production-Lineup-to-Accelerate-Push-Into-Hyperscale-AI-Infrastructure"
+    ],
+    "source_date": null,
+    "line": 1837,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-4": {
+    "grade": "공식",
+    "description_raw": "Series B $135M, 2026-05-29 — https://markets.financialcontent.com/bpas/article/bizwire-2026-5-29-xcena-raises-135m-series-b-to-accelerate-deployment-of-memory-centric-computing-solutions",
+    "urls": [
+      "https://markets.financialcontent.com/bpas/article/bizwire-2026-5-29-xcena-raises-135m-series-b-to-accelerate-deployment-of-memory-centric-computing-solutions"
+    ],
+    "source_date": "2026-05-29",
+    "line": 1838,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-5": {
+    "grade": "공식",
+    "description_raw": "MetisX Series A $44M — https://www.prnewswire.com/news-releases/metisx-a-fabless-startup-in-south-korea-raises-44m-in-series-a-funding-302142094.html",
+    "urls": [
+      "https://www.prnewswire.com/news-releases/metisx-a-fabless-startup-in-south-korea-raises-44m-in-series-a-funding-302142094.html"
+    ],
+    "source_date": null,
+    "line": 1839,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-6": {
+    "grade": "2차 DB",
+    "description_raw": "OpenBizData — https://www.openbizdata.com/xcena/",
+    "urls": [
+      "https://www.openbizdata.com/xcena/"
+    ],
+    "source_date": null,
+    "line": 1840,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "XC-7": {
+    "grade": "학술·특허",
+    "description_raw": "US 12,147,831 B2 — https://patents.google.com/patent/US20240338243A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20240338243A1/en"
+    ],
+    "source_date": null,
+    "line": 1841,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-1": {
+    "grade": "공식",
+    "description_raw": "제품 — https://www.mangoboost.io/",
+    "urls": [
+      "https://www.mangoboost.io/"
+    ],
+    "source_date": null,
+    "line": 1844,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-2": {
+    "grade": "공식",
+    "description_raw": "회사 소개·파트너 — https://www.mangoboost.io/company/about",
+    "urls": [
+      "https://www.mangoboost.io/company/about"
+    ],
+    "source_date": null,
+    "line": 1845,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-3": {
+    "grade": "제3자",
+    "description_raw": "MLCommons MLPerf Inference v5.0 제출 — https://github.com/mlcommons/inference_results_v5.0/blob/main/closed/MangoBoost/README.md",
+    "urls": [
+      "https://github.com/mlcommons/inference_results_v5.0/blob/main/closed/MangoBoost/README.md"
+    ],
+    "source_date": null,
+    "line": 1846,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-4": {
+    "grade": "공식",
+    "description_raw": "Series A 발표 — https://www.mangoboost.io/company/newsroom/announcing-our-closing-of-series-a-funding-round-and-way-forward",
+    "urls": [
+      "https://www.mangoboost.io/company/newsroom/announcing-our-closing-of-series-a-funding-round-and-way-forward"
+    ],
+    "source_date": null,
+    "line": 1847,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-5": {
+    "grade": "언론",
+    "description_raw": "TechCrunch, 2023-10-23 — https://techcrunch.com/2023/10/23/ai-based-data-center-optimization-startup-mangoboost-raises-55m-series-a/",
+    "urls": [
+      "https://techcrunch.com/2023/10/23/ai-based-data-center-optimization-startup-mangoboost-raises-55m-series-a/"
+    ],
+    "source_date": "2023-10-23",
+    "line": 1848,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-6": {
+    "grade": "2차 DB",
+    "description_raw": "R&D Circle — https://app.rndcircle.io/company/c9ebf4ed-9b97-5c5e-85b9-c8b5e1da2f26",
+    "urls": [
+      "https://app.rndcircle.io/company/c9ebf4ed-9b97-5c5e-85b9-c8b5e1da2f26"
+    ],
+    "source_date": null,
+    "line": 1849,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-7": {
+    "grade": "2차 DB",
+    "description_raw": "CookieDeal — https://cookiedeal.io/company-search/1328702534/%EB%A7%9D%EA%B3%A0%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%A6%AC%EC%95%84",
+    "urls": [
+      "https://cookiedeal.io/company-search/1328702534/%EB%A7%9D%EA%B3%A0%EB%B6%80%EC%8A%A4%ED%8A%B8%EC%BD%94%EB%A6%AC%EC%95%84"
+    ],
+    "source_date": null,
+    "line": 1850,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-8": {
+    "grade": "공식",
+    "description_raw": "Supermicro 솔루션 브리프 PDF — https://www.supermicro.com/solutions/Solution_Brief_MangoBoost_AI_Enterprise_Software_SMCI_AMD_Instinct.pdf",
+    "urls": [
+      "https://www.supermicro.com/solutions/Solution_Brief_MangoBoost_AI_Enterprise_Software_SMCI_AMD_Instinct.pdf"
+    ],
+    "source_date": null,
+    "line": 1851,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-9": {
+    "grade": "공식",
+    "description_raw": "기술 문서 라이브러리 — https://www.mangoboost.io/resources/documentation",
+    "urls": [
+      "https://www.mangoboost.io/resources/documentation"
+    ],
+    "source_date": null,
+    "line": 1852,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-10": {
+    "grade": "학술·특허",
+    "description_raw": "Justia 특허 목록 — https://patents.justia.com/assignee/mangoboost-inc",
+    "urls": [
+      "https://patents.justia.com/assignee/mangoboost-inc"
+    ],
+    "source_date": null,
+    "line": 1853,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "MB-11": {
+    "grade": "언론",
+    "description_raw": "디일렉 — https://www.thelec.kr/news/articleView.html?idxno=58171",
+    "urls": [
+      "https://www.thelec.kr/news/articleView.html?idxno=58171"
+    ],
+    "source_date": null,
+    "line": 1854,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-1": {
+    "grade": "공식",
+    "description_raw": "제품 — https://lightmatter.co/",
+    "urls": [
+      "https://lightmatter.co/"
+    ],
+    "source_date": null,
+    "line": 1857,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-2": {
+    "grade": "공식",
+    "description_raw": "Passage L20 발표 — https://lightmatter.co/press-release/lightmatter-expands-photonic-interconnect-roadmap-with-passage-l20-unified-optical-engine-for-npo-and-obo-applications/",
+    "urls": [
+      "https://lightmatter.co/press-release/lightmatter-expands-photonic-interconnect-roadmap-with-passage-l20-unified-optical-engine-for-npo-and-obo-applications/"
+    ],
+    "source_date": null,
+    "line": 1858,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-3": {
+    "grade": "공식",
+    "description_raw": "NVLink Fusion 합류 — https://lightmatter.co/press-release/lightmatter-joins-nvidia-nvlink-fusion/",
+    "urls": [
+      "https://lightmatter.co/press-release/lightmatter-joins-nvidia-nvlink-fusion/"
+    ],
+    "source_date": null,
+    "line": 1859,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-4": {
+    "grade": "공식",
+    "description_raw": "Series D $400M, 2024-10-16 — https://www.businesswire.com/news/home/20241016498931/en/Lightmatter-Raises-$400M-Series-D-Quadruples-Valuation-to-$4.4B-as-Photonics-Leader-for-Next-Gen-AI-Data-Centers",
+    "urls": [
+      "https://www.businesswire.com/news/home/20241016498931/en/Lightmatter-Raises-$400M-Series-D-Quadruples-Valuation-to-$4.4B-as-Photonics-Leader-for-Next-Gen-AI-Data-Centers"
+    ],
+    "source_date": "2024-10-16",
+    "line": 1860,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-5": {
+    "grade": "학술·특허",
+    "description_raw": "Nature 논문 — https://doi.org/10.1038/s41586-025-08854-x (코드: https://github.com/lightmatter-ai/upaia-paper-2025)",
+    "urls": [
+      "https://doi.org/10.1038/s41586-025-08854-x",
+      "https://github.com/lightmatter-ai/upaia-paper-2025"
+    ],
+    "source_date": null,
+    "line": 1861,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-6": {
+    "grade": "공시",
+    "description_raw": "SEC Form D — https://www.sec.gov/Archives/edgar/data/1768622/000176862224000001/xslFormDX01/primary_doc.xml",
+    "urls": [
+      "https://www.sec.gov/Archives/edgar/data/1768622/000176862224000001/xslFormDX01/primary_doc.xml"
+    ],
+    "source_date": null,
+    "line": 1862,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-7": {
+    "grade": "학술·특허",
+    "description_raw": "US 12,332,479 B2 — https://patents.google.com/patent/US20240219635A1/en",
+    "urls": [
+      "https://patents.google.com/patent/US20240219635A1/en"
+    ],
+    "source_date": null,
+    "line": 1863,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "LM-8": {
+    "grade": "공식",
+    "description_raw": "보도자료 목록 — https://lightmatter.co/press-releases/ (본문 미인용, 원자료 참고 목록)",
+    "urls": [
+      "https://lightmatter.co/press-releases/"
+    ],
+    "source_date": null,
+    "line": 1864,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-1": {
+    "grade": "공식",
+    "description_raw": "제품 — https://ayarlabs.com/products/",
+    "urls": [
+      "https://ayarlabs.com/products/"
+    ],
+    "source_date": null,
+    "line": 1867,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-2": {
+    "grade": "공식",
+    "description_raw": "TeraPHY 사양 — https://ayarlabs.com/teraphy/",
+    "urls": [
+      "https://ayarlabs.com/teraphy/"
+    ],
+    "source_date": null,
+    "line": 1868,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-3": {
+    "grade": "공식",
+    "description_raw": "UCIe 광 칩렛 발표 — https://ayarlabs.com/news/ayar-labs-unveils-worlds-first-ucie-optical-chiplet-for-ai-scale-up-architectures/",
+    "urls": [
+      "https://ayarlabs.com/news/ayar-labs-unveils-worlds-first-ucie-optical-chiplet-for-ai-scale-up-architectures/"
+    ],
+    "source_date": null,
+    "line": 1869,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-4": {
+    "grade": "공식",
+    "description_raw": "TeraPHY 검증 블로그 — https://ayarlabs.com/blog/lets-get-serious-teraphy-optical-engine-passes-the-test-for-ai-scale-up-at-volume/",
+    "urls": [
+      "https://ayarlabs.com/blog/lets-get-serious-teraphy-optical-engine-passes-the-test-for-ai-scale-up-at-volume/"
+    ],
+    "source_date": null,
+    "line": 1870,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-5": {
+    "grade": "공식",
+    "description_raw": "Series D $155M — https://ayarlabs.com/news/ayar-labs-155m-series-d-to-address-ai-infrastructure-includes-amd-intel-capital-nvidia/",
+    "urls": [
+      "https://ayarlabs.com/news/ayar-labs-155m-series-d-to-address-ai-infrastructure-includes-amd-intel-capital-nvidia/"
+    ],
+    "source_date": null,
+    "line": 1871,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-6": {
+    "grade": "공식",
+    "description_raw": "Series E $500M — https://ayarlabs.com/news/ayar-labs-closes-500m-series-e-accelerates-volume-production-of-co-packaged-optics/",
+    "urls": [
+      "https://ayarlabs.com/news/ayar-labs-closes-500m-series-e-accelerates-volume-production-of-co-packaged-optics/"
+    ],
+    "source_date": null,
+    "line": 1872,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-7": {
+    "grade": "공식",
+    "description_raw": "2026 조달 $650M — https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million/",
+    "urls": [
+      "https://ayarlabs.com/news/ayar-labs-expands-2026-funding-to-650-million/"
+    ],
+    "source_date": null,
+    "line": 1873,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-8": {
+    "grade": "학술·특허",
+    "description_raw": "Justia 특허 목록 — https://patents.justia.com/assignee/ayar-labs-inc",
+    "urls": [
+      "https://patents.justia.com/assignee/ayar-labs-inc"
+    ],
+    "source_date": null,
+    "line": 1874,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "AYR-9": {
+    "grade": "공식",
+    "description_raw": "회사 연혁 — https://ayarlabs.com/about/",
+    "urls": [
+      "https://ayarlabs.com/about/"
+    ],
+    "source_date": null,
+    "line": 1875,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ELY-1": {
+    "grade": "공식",
+    "description_raw": "기술 — https://eliyan.com/technology/",
+    "urls": [
+      "https://eliyan.com/technology/"
+    ],
+    "source_date": null,
+    "line": 1878,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ELY-2": {
+    "grade": "공식",
+    "description_raw": "64Gbps 3nm PHY 발표 — https://eliyan.com/press-release/eliyan-delivers-industrys-highest-performing-chiplet-interconnect-phy-at-64gbps-in-3nm-process/",
+    "urls": [
+      "https://eliyan.com/press-release/eliyan-delivers-industrys-highest-performing-chiplet-interconnect-phy-at-64gbps-in-3nm-process/"
+    ],
+    "source_date": null,
+    "line": 1879,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ELY-3": {
+    "grade": "공식",
+    "description_raw": "$50M 전략투자 — https://eliyan.com/press-release/eliyan-secures-50-million-in-strategic-investments/",
+    "urls": [
+      "https://eliyan.com/press-release/eliyan-secures-50-million-in-strategic-investments/"
+    ],
+    "source_date": null,
+    "line": 1880,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ELY-4": {
+    "grade": "공식",
+    "description_raw": "보도자료 목록 — https://eliyan.com/category/press-release/",
+    "urls": [
+      "https://eliyan.com/category/press-release/"
+    ],
+    "source_date": null,
+    "line": 1881,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ELY-5": {
+    "grade": "공식",
+    "description_raw": "Series C $145M (GlobeNewswire), 2026-07-29 — https://www.globenewswire.com/news-release/2026/07/29/3335320/0/en/eliyan-achieves-unicorn-status-with-145-million-series-c-to-advance-electro-optical-interconnects-for-ai-infrastructure.html",
+    "urls": [
+      "https://www.globenewswire.com/news-release/2026/07/29/3335320/0/en/eliyan-achieves-unicorn-status-with-145-million-series-c-to-advance-electro-optical-interconnects-for-ai-infrastructure.html"
+    ],
+    "source_date": "2026-07-29",
+    "line": 1882,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "ELY-6": {
+    "grade": "학술·특허",
+    "description_raw": "US 11,855,056 B1 — https://patents.google.com/patent/US11855056B1/en",
+    "urls": [
+      "https://patents.google.com/patent/US11855056B1/en"
+    ],
+    "source_date": null,
+    "line": 1883,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "OXQ-1": {
+    "grade": "공식",
+    "description_raw": "\"Re-Architecting the GPU Stack\" — https://oxmiq.ai/blog-re-architecting-gpu-stack",
+    "urls": [
+      "https://oxmiq.ai/blog-re-architecting-gpu-stack"
+    ],
+    "source_date": null,
+    "line": 1886,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "OXQ-2": {
+    "grade": "공식",
+    "description_raw": "제품 FAQ — https://oxmiq.ai/faq",
+    "urls": [
+      "https://oxmiq.ai/faq"
+    ],
+    "source_date": null,
+    "line": 1887,
+    "verification": "citation_transcribed_not_reverified"
+  },
+  "OXQ-3": {
+    "grade": "공식",
+    "description_raw": "\"Eight Months Out of Stealth\" — https://oxmiq.ai/blog-eight-months-out-of-stealth",
+    "urls": [
+      "https://oxmiq.ai/blog-eight-months-out-of-stealth"
+    ],
+    "source_date": null,
+    "line": 1888,
+    "verification": "citation_transcribed_not_reverified"
+  }
+}

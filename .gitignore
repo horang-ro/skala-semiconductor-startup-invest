@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+.cache/
+outputs/
+.DS_Store
+.ipynb_checkpoints/
+# 제3자 원문 자료(기사·보고서 PDF)는 저작권 문제로 공개 저장소에 올리지 않음
+data/company/
+# 설계 산출물 초안 (별도 제출)
+RAG-Design_*

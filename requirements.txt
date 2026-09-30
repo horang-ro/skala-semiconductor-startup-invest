@@ -1,0 +1,14 @@
+langchain>=1.0.2
+langchain-openai>=1.0.1
+langchain-teddynote>=0.5.4
+langgraph>=1.0.1
+python-dotenv>=1.2.1
+pydantic>=2.12
+feedparser>=6.0.12
+yfinance>=0.2.66
+faiss-cpu==1.15.1
+FlagEmbedding==1.4.2
+transformers==5.17.0
+numpy==2.5.3
+huggingface-hub==1.33.0
+torch

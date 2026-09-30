@@ -1,0 +1,366 @@
+{
+  "kind": "retrieval_smoke_test_not_accuracy_benchmark",
+  "test_count": 8,
+  "passed": 8,
+  "tests": [
+    {
+      "query": "딥엑스 DX-M1 연산 성능과 정밀도는 무엇인가요?",
+      "company_filter": "DX",
+      "category_filter": "technology",
+      "expected_fragment": "25 TOPS",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "DX_c65eb0cb630011a5",
+          "text": "기업: 딥엑스 (DEEPX); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.2 딥엑스 (DEEPX, 한국) > 기술\n상위 문맥: DX-M1 [DX-5]\n25 TOPS (INT8), 전력 1W(최소) ~ 5W(최대)",
+          "rrf_score": 0.03252247488101534,
+          "source_ids": [
+            "DX-5"
+          ]
+        },
+        {
+          "chunk_id": "DX_aa8ece68e7aca46c",
+          "text": "기업: 딥엑스 (DEEPX); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.2 딥엑스 (DEEPX, 한국) > 기술\n상위 문맥: DX-M1 [DX-5]\n패키지: FC-BGA 17×17mm",
+          "rrf_score": 0.032018442622950824,
+          "source_ids": [
+            "DX-5"
+          ]
+        },
+        {
+          "chunk_id": "DX_8c3599f51d588cdc",
+          "text": "기업: 딥엑스 (DEEPX); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.2 딥엑스 (DEEPX, 한국) > 기술\n상위 문맥: DX-M1 [DX-5]\n메모리: LPDDR4x(최대 4,266 MT/s) 또는 LPDDR5(최대 6,000 MT/s), 최대 8GB",
+          "rrf_score": 0.03200204813108039,
+          "source_ids": [
+            "DX-5"
+          ]
+        },
+        {
+          "chunk_id": "DX_a44e0b92ebfaba08",
+          "text": "기업: 딥엑스 (DEEPX); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.2 딥엑스 (DEEPX, 한국) > 기술\nDX-M1 [DX-5]",
+          "rrf_score": 0.031024531024531024,
+          "source_ids": [
+            "DX-5"
+          ]
+        },
+        {
+          "chunk_id": "DX_35d9808a0f17f65a",
+          "text": "기업: 딥엑스 (DEEPX); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.2 딥엑스 (DEEPX, 한국) > 기술\n상위 문맥: DX-M1 [DX-5]\n지원 OS: Windows, Ubuntu, Yocto, Docker",
+          "rrf_score": 0.030776515151515152,
+          "source_ids": [
+            "DX-5"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "하이퍼엑셀 2025년 실제 매출은 얼마인가요?",
+      "company_filter": "HA",
+      "category_filter": "financial",
+      "expected_fragment": "2,244,031,820",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "HA_13f7de610d60e140",
+          "text": "기업: 하이퍼엑셀 (HyperAccel); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.1 하이퍼엑셀 (HyperAccel, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n✎ 원자료 오류 정정: 원자료는 매출을 \"2023년 20만 원, 2024년 239만 원, 2025년 2,244만 원 (THE VC 공시 기준)\"으로 적었다. DART 원문과 비교하면 단위가 100배 작게 적혀 있다.",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": []
+        },
+        {
+          "chunk_id": "HA_38716e5cd486e9c6",
+          "text": "기업: 하이퍼엑셀 (HyperAccel); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.1 하이퍼엑셀 (HyperAccel, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n상위 문맥: | 연도 (기수) | 매출 | 영업손실 | 당기순손실 |\n연도 (기수): 2025 (3기); 매출: 2,244,031,820원 (22.4억); 영업손실: 123.0억; 당기순손실: 113.0억",
+          "rrf_score": 0.03225806451612903,
+          "source_ids": [
+            "HA-1"
+          ]
+        },
+        {
+          "chunk_id": "HA_696aa29bc2e4e263",
+          "text": "기업: 하이퍼엑셀 (HyperAccel); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.1 하이퍼엑셀 (HyperAccel, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n상위 문맥: | 연도 (기수) | 매출 | 영업손실 | 당기순손실 |\n연도 (기수): 2024 (2기); 매출: 239,467,768원 (2.4억); 영업손실: 99.0억; 당기순손실: 100.2억",
+          "rrf_score": 0.03149801587301587,
+          "source_ids": [
+            "HA-1"
+          ]
+        },
+        {
+          "chunk_id": "HA_1d007d47deb4048e",
+          "text": "기업: 하이퍼엑셀 (HyperAccel); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.1 하이퍼엑셀 (HyperAccel, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n2023년 매출은 DART 원문으로 확인하지 못했다.",
+          "rrf_score": 0.03149801587301587,
+          "source_ids": []
+        }
+      ]
+    },
+    {
+      "query": "퓨리오사AI 2025년 당기순손실과 영업손실은 얼마인가요?",
+      "company_filter": "FUR",
+      "category_filter": "financial",
+      "expected_fragment": "8,333.5",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "FUR_9f82c35eb198fa3f",
+          "text": "기업: 퓨리오사AI (FuriosaAI); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.3 퓨리오사AI (FuriosaAI, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n⚠️ 2025년 당기순손실 8,333.5억 원: 영업손실의 약 15배다. 영업 외 항목의 영향으로 보이며, 주석 확인이 필요하다.",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": []
+        },
+        {
+          "chunk_id": "FUR_d76d62a8e8898a42",
+          "text": "기업: 퓨리오사AI (FuriosaAI); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.3 퓨리오사AI (FuriosaAI, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n상위 문맥: | 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n연도 (기수): 2025 (9기); 매출: 57.4억; 영업손실: 550.9억; 당기순손실: 8,333.5억; 비고: 감사 [FUR-1]",
+          "rrf_score": 0.03225806451612903,
+          "source_ids": [
+            "FUR-1"
+          ]
+        },
+        {
+          "chunk_id": "FUR_3b37ca41748be42c",
+          "text": "기업: 퓨리오사AI (FuriosaAI); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.3 퓨리오사AI (FuriosaAI, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n상위 문맥: | 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n연도 (기수): 2023 (7기); 매출: 36.2억; 영업손실: 598.6억; 당기순손실: 766.5억; 비고: 2024년 보고서의 비교 수치, 감사받지 않음 [FUR-2]",
+          "rrf_score": 0.031746031746031744,
+          "source_ids": [
+            "FUR-2"
+          ]
+        },
+        {
+          "chunk_id": "FUR_46e0ef7497360029",
+          "text": "기업: 퓨리오사AI (FuriosaAI); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.3 퓨리오사AI (FuriosaAI, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n상위 문맥: | 연도 (기수) | 매출 | 영업손실 | 당기순손실 | 비고 |\n연도 (기수): 2024 (8기); 매출: 29.6억; 영업손실: 725.4억; 당기순손실: 1,521.7억; 비고: 감사 [FUR-2]",
+          "rrf_score": 0.03125,
+          "source_ids": [
+            "FUR-2"
+          ]
+        },
+        {
+          "chunk_id": "FUR_d2c24380b7772705",
+          "text": "기업: 퓨리오사AI (FuriosaAI); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.3 퓨리오사AI (FuriosaAI, 한국) > 재무 (DART 감사보고서, 삼일회계법인) ✎\n✎ 원자료는 \"2025년 약 57억 원, 공식 공시 미확정\"이라고 적었다. 실제로는 5,742,369,775원으로 공시되어 있다 [FUR-1].",
+          "rrf_score": 0.03076923076923077,
+          "source_ids": [
+            "FUR-1"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Groq 2025년 5억 달러는 실제 매출인가요 전망치인가요?",
+      "company_filter": "GRQ",
+      "category_filter": "financial",
+      "expected_fragment": "전망치",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "GRQ_441169fb16691652",
+          "text": "기업: Groq (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.7 Groq (미국) > 재무\n상위 문맥: | 연도 | 매출 | 성격 |\n연도: 2025; 매출: 약 $500M; 성격: 투자자에게 제시한 당초 전망치. 확정 실적 아님 [GRQ-4][GRQ-5]",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": [
+            "GRQ-4",
+            "GRQ-5"
+          ]
+        },
+        {
+          "chunk_id": "GRQ_77bfe0de678d905d",
+          "text": "기업: Groq (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.7 Groq (미국) > 재무\n상위 문맥: | 연도 | 매출 | 성격 |\n연도: 2024; 매출: 약 $90M; 성격: 언론 보도치 (감사 재무제표 아님) [GRQ-4]",
+          "rrf_score": 0.03200204813108039,
+          "source_ids": [
+            "GRQ-4"
+          ]
+        },
+        {
+          "chunk_id": "GRQ_10f2eef1a3626512",
+          "text": "기업: Groq (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.7 Groq (미국) > 재무\n2025년 사우디 $1.5B는 약정(commitment)이다. 해당 연도 매출이 아니다 [GRQ-6].",
+          "rrf_score": 0.03200204813108039,
+          "source_ids": [
+            "GRQ-6"
+          ]
+        },
+        {
+          "chunk_id": "GRQ_68ca84bc163fc5de",
+          "text": "기업: Groq (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.7 Groq (미국) > 재무\n두 값은 성격이 달라 성장률을 계산할 수 없다.",
+          "rrf_score": 0.03125,
+          "source_ids": []
+        }
+      ]
+    },
+    {
+      "query": "Rain AI 특허 소유권과 OpenAI 양도 리스크는 무엇인가요?",
+      "company_filter": "RAIN",
+      "category_filter": null,
+      "expected_fragment": "양도",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "RAIN_807ea1cf2a6c6fb3",
+          "text": "기업: Rain AI (Rain Neuromorphics); 분류: 인메모리 연산(CIM/PIM)\n항목: 0. 문서 사용 원칙 > 0.3 과제 적격성 플래그 (비상장·독립 투자 대상 여부)\n상위 문맥: | 기업 | 플래그 | 근거 |\n기업: Rain AI; 플래그: 핵심 특허 여러 건이 2025-10-23 OpenAI로 양도되었다. 회사 전체 인수는 아니지만 현재 IP와 사업 상태 검증이 필요하다.; 근거: [RAIN-4]~[RAIN-8]",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": [
+            "RAIN-4",
+            "RAIN-5",
+            "RAIN-6",
+            "RAIN-7",
+            "RAIN-8"
+          ]
+        },
+        {
+          "chunk_id": "RAIN_39eb9572e9e8f123",
+          "text": "기업: Rain AI (Rain Neuromorphics); 분류: 인메모리 연산(CIM/PIM)\n항목: 4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM) > 4.5 Rain AI (미국)\n> ⚠️ 적격성: Rain Neuromorphics가 보유했던 특허 여러 건이 2025-10-23 OpenAI Opco, LLC로 양도되었다 [RAIN-4]~[RAIN-7]. 회사 전체 인수는 아니다. The Information은 매각 시도가 실패한 뒤 OpenAI가 일부 특허를 샀다고 보도했다 [RAIN-8]. 아래를 확인하기 전에 정상 투자 대상으로 처리하면 위험하다.",
+          "rrf_score": 0.03225806451612903,
+          "source_ids": [
+            "RAIN-4",
+            "RAIN-5",
+            "RAIN-6",
+            "RAIN-7",
+            "RAIN-8"
+          ]
+        },
+        {
+          "chunk_id": "RAIN_b2ef5638eb53b98b",
+          "text": "기업: Rain AI (Rain Neuromorphics); 분류: 인메모리 연산(CIM/PIM)\n항목: 4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM) > 4.5 Rain AI (미국) > 양도된 특허 예시\nConvolution operations with in-memory computing [RAIN-7]",
+          "rrf_score": 0.03125,
+          "source_ids": [
+            "RAIN-7"
+          ]
+        },
+        {
+          "chunk_id": "RAIN_55dbfa4fe89eb413",
+          "text": "기업: Rain AI (Rain Neuromorphics); 분류: 인메모리 연산(CIM/PIM)\n항목: 1. 30개사 한눈에 보기 > 1.3 기술 평가 요소 비교표\n상위 문맥: | 기업 · 제품 | 공정 | 성능 (정밀도) | 전력 | 효율 (계산) | 메모리 | SW 스택 | 성숙도 | 외부 검증 |\n기업 · 제품: Rain AI; 공정: 확인 안 됨; 성능 (정밀도): 4/8-bit 행렬곱; 전력: —; 효율 (계산): —; 메모리: 디지털 IMC + RISC-V; SW 스택: 확인 안 됨; 성숙도: IP 판매 가능, HW 예정; 외부 검증: 특허 (OpenAI로 양도)",
+          "rrf_score": 0.031024531024531024,
+          "source_ids": []
+        },
+        {
+          "chunk_id": "RAIN_80bf53bf522928f9",
+          "text": "기업: Rain AI (Rain Neuromorphics); 분류: 인메모리 연산(CIM/PIM)\n항목: 4. 기업별 상세 — 세그먼트 C: 인메모리 연산 (CIM / PIM) > 4.5 Rain AI (미국) > 양도된 특허 예시\nCompute in-memory architecture for continuous on-chip learning [RAIN-4]",
+          "rrf_score": 0.03076923076923077,
+          "source_ids": [
+            "RAIN-4"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Quadric은 칩 판매 기업인가요 IP 라이선스 기업인가요?",
+      "company_filter": "QD",
+      "category_filter": null,
+      "expected_fragment": "라이선스",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "QD_a0d96d88187fc040",
+          "text": "기업: Quadric (); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.5 Quadric (미국) > 개요\n사업 모델: NPU 설계 IP 라이선스. 칩을 팔지 않고, 칩 설계 회사에 프로세서 IP와 툴체인을 라이선스한다 [QD-1].",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": [
+            "QD-1"
+          ]
+        },
+        {
+          "chunk_id": "QD_062cd5184448e7a2",
+          "text": "기업: Quadric (); 분류: 엣지·온디바이스·차량 NPU\n항목: 1. 30개사 한눈에 보기 > 1.1 기업 개요 비교표\n상위 문맥: | # | 기업 | 국가 | 세그 | 대표 제품 / 사업 모델 | 최근 확인 라운드 · 누적 · 기업가치 |\n#: 5; 기업: Quadric; 국가: 미국; 세그: A; 대표 제품 / 사업 모델: Chimera GPNPU / IP 라이선스; 최근 확인 라운드 · 누적 · 기업가치: 시리즈C $30M, 누적 $72M [QD-1]",
+          "rrf_score": 0.031746031746031744,
+          "source_ids": [
+            "QD-1"
+          ]
+        },
+        {
+          "chunk_id": "QD_9d1530601e328f4d",
+          "text": "기업: Quadric (); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.5 Quadric (미국) > 상용화·고객 [QD-1]\n라이선스 고객: 일본 Tier IV(자율주행 SW), 아시아 엣지 서버 LLM 칩 업체 1곳(이름 비공개)",
+          "rrf_score": 0.0315136476426799,
+          "source_ids": [
+            "QD-1"
+          ]
+        },
+        {
+          "chunk_id": "QD_927a0aa03e62c752",
+          "text": "기업: Quadric (); 분류: 엣지·온디바이스·차량 NPU\n항목: 1. 30개사 한눈에 보기 > 1.3 기술 평가 요소 비교표\n상위 문맥: | 기업 · 제품 | 공정 | 성능 (정밀도) | 전력 | 효율 (계산) | 메모리 | SW 스택 | 성숙도 | 외부 검증 |\n기업 · 제품: Quadric Chimera; 공정: IP; 성능 (정밀도): 1~864 TOPS; 전력: IP라 해당 없음; 효율 (계산): 해당 없음; 메모리: 해당 없음; SW 스택: Chimera SDK; 성숙도: 라이선스 판매 중; 외부 검증: 없음",
+          "rrf_score": 0.031054405392392875,
+          "source_ids": []
+        },
+        {
+          "chunk_id": "QD_bf44eb7c0e8dd4c3",
+          "text": "기업: Quadric (); 분류: 엣지·온디바이스·차량 NPU\n항목: 2. 기업별 상세 — 세그먼트 A: 엣지·온디바이스·차량 NPU > 2.5 Quadric (미국) > 기술 평가 근거\nIP 기업이라 양산 단계나 TOPS/W 같은 칩 지표를 똑같이 적용할 수 없다.",
+          "rrf_score": 0.030776515151515152,
+          "source_ids": []
+        }
+      ]
+    },
+    {
+      "query": "d-Matrix의 메모리는 온칩 SRAM인가요 HBM인가요?",
+      "company_filter": "DM",
+      "category_filter": "technology",
+      "expected_fragment": "SRAM",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "DM_7ddeea0ee191eff8",
+          "text": "기업: d-Matrix (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.4 d-Matrix (미국) > 기술\n메모리: 온칩 SRAM이 주 연산 공간이고, LPDDR이 보조 계층이다. HBM은 쓰지 않는다 [DM-2][DM-4].",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": [
+            "DM-2",
+            "DM-4"
+          ]
+        },
+        {
+          "chunk_id": "DM_c9bc8c7186721dbd",
+          "text": "기업: d-Matrix (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.4 d-Matrix (미국) > 기술\n연산 방식: LLM 가중치를 온칩 SRAM 셀에 직접 두고 연산한다. 배치 1~8의 저지연 환경을 겨냥한다 [DM-2] (2차).",
+          "rrf_score": 0.03225806451612903,
+          "source_ids": [
+            "DM-2"
+          ]
+        },
+        {
+          "chunk_id": "DM_36078a3f8227bd2b",
+          "text": "기업: d-Matrix (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.4 d-Matrix (미국) > 기술\n칩렛 구성: 연산 다이 Jayhawk + I/O 가속 JetStream [DM-1] (2차)",
+          "rrf_score": 0.031746031746031744,
+          "source_ids": [
+            "DM-1"
+          ]
+        },
+        {
+          "chunk_id": "DM_3d8556ed6b9636af",
+          "text": "기업: d-Matrix (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.4 d-Matrix (미국) > 기술\nCorsair: PCIe 가속 카드. 2026년 6월 양산에 들어갔다 [DM-3] (2차).",
+          "rrf_score": 0.031009615384615385,
+          "source_ids": [
+            "DM-3"
+          ]
+        },
+        {
+          "chunk_id": "DM_6e4d0bcd506db00f",
+          "text": "기업: d-Matrix (); 분류: 데이터센터 AI 추론·학습 가속기\n항목: 3. 기업별 상세 — 세그먼트 B: 데이터센터 AI 추론·학습 가속기 > 3.4 d-Matrix (미국) > 기술\n소프트웨어: Aviator 스택. Wallaroo.ai를 인수했다 [DM-5] (2차).",
+          "rrf_score": 0.031009615384615385,
+          "source_ids": [
+            "DM-5"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "파네시아 R&D 과제 30M 달러는 투자금인가요 지원금인가요?",
+      "company_filter": "PAN",
+      "category_filter": "funding",
+      "expected_fragment": "과제",
+      "expected_fragment_found_at_5": true,
+      "hits": [
+        {
+          "chunk_id": "PAN_f217d3911acdb7e4",
+          "text": "기업: 파네시아 (Panmnesia); 분류: AI 인프라(인터커넥트·메모리·DPU·GPU IP)\n항목: 5. 기업별 상세 — 세그먼트 D: AI 인프라 (인터커넥트·메모리·DPU·GPU IP) > 5.1 파네시아 (Panmnesia, 한국) > 투자\n2025 AI 인프라 R&D 과제 $30M [PAN-7]. 신주 투자가 아니라 과제 지원금이다.",
+          "rrf_score": 0.03278688524590164,
+          "source_ids": [
+            "PAN-7"
+          ]
+        },
+        {
+          "chunk_id": "PAN_8870a2408d3568af",
+          "text": "기업: 파네시아 (Panmnesia); 분류: AI 인프라(인터커넥트·메모리·DPU·GPU IP)\n항목: 5. 기업별 상세 — 세그먼트 D: AI 인프라 (인터커넥트·메모리·DPU·GPU IP) > 5.1 파네시아 (Panmnesia, 한국) > 투자\n2024 Series A $60M+, 기업가치 약 $250M (회사 연혁, 2026 보도) [PAN-10][PAN-6]",
+          "rrf_score": 0.03200204813108039,
+          "source_ids": [
+            "PAN-10",
+            "PAN-6"
+          ]
+        },
+        {
+          "chunk_id": "PAN_d96522196b658fae",
+          "text": "기업: 파네시아 (Panmnesia); 분류: AI 인프라(인터커넥트·메모리·DPU·GPU IP)\n항목: 5. 기업별 상세 — 세그먼트 D: AI 인프라 (인터커넥트·메모리·DPU·GPU IP) > 5.1 파네시아 (Panmnesia, 한국) > 투자\n2026 UALink·Ethernet 컨트롤러/스위치 SoC R&D 과제 약 $10M [PAN-6]",
+          "rrf_score": 0.03200204813108039,
+          "source_ids": [
+            "PAN-6"
+          ]
+        }
+      ]
+    }
+  ],
+  "vector_database_alignment": "passed",
+  "financial_semantics_checks": "passed"
+}
