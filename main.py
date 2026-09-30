@@ -4,6 +4,7 @@
     python main.py --amount 1000000000 --years 5
     python main.py --limit 3          # 앞 3개사만으로 빠르게 점검
     python main.py --reuse            # 저장된 점수로 투자 판단·보고서만 다시 생성
+    python main.py --report-only      # 저장된 점수·수익률로 SWOT·보고서만 다시 생성
     python main.py --draw             # 그래프 구조(mermaid)만 출력
 """
 
@@ -24,6 +25,7 @@ def main():
     parser.add_argument("--years", type=int, default=5, help="투자 유지 기간(년)")
     parser.add_argument("--limit", type=int, default=None, help="평가할 기업 수 (점검용)")
     parser.add_argument("--reuse", action="store_true", help="outputs/evaluations.json 점수를 재사용")
+    parser.add_argument("--report-only", action="store_true", help="저장된 점수·수익률로 보고서만 다시 생성")
     parser.add_argument("--draw", action="store_true", help="그래프 mermaid만 출력")
     args = parser.parse_args()
 
@@ -45,6 +47,11 @@ def main():
 
     companies = COMPANIES[: args.limit] if args.limit else COMPANIES
     evaluations, start_index = [], 0
+    extra = {}
+    if args.report_only:
+        args.reuse = True
+        extra = json.loads((OUTPUT_DIR / "criteria.json").read_text()) if (OUTPUT_DIR / "criteria.json").exists() else {}
+        extra["forecasts"] = json.loads((OUTPUT_DIR / "forecasts.json").read_text(encoding="utf-8"))
     if args.reuse:
         evaluations = json.loads((OUTPUT_DIR / "evaluations.json").read_text(encoding="utf-8"))
         companies = [e["company"] for e in evaluations]
@@ -60,7 +67,7 @@ def main():
         "threshold_total": INITIAL_TOTAL_THRESHOLD,
         "threshold_cutoff": INITIAL_CUTOFF_RATIO,
         "relax_round": 0,
-    }
+    } | extra
     config = RunnableConfig(recursion_limit=500, configurable={"thread_id": "invest-run"})
 
     result = app.invoke(inputs, config)

@@ -17,6 +17,7 @@ table { border-collapse: collapse; width: 100%; font-size: 8.8pt; margin: 6px 0;
 td, th { border: 1px solid #999; padding: 3px 5px; vertical-align: top; }
 th { background: #f0f0f0; }
 a { color: #1a56b0; word-break: break-all; }
+img { max-width: 100%; height: auto; display: block; margin: 8px auto; }
 """
 
 CHROME_CANDIDATES = [

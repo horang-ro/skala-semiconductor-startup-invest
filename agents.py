@@ -1,6 +1,7 @@
 """투자 평가 그래프의 노드(에이전트)를 정의합니다."""
 
 import json
+import re
 import statistics
 from datetime import date
 
@@ -21,6 +22,7 @@ from config import (
     TECH_ITEMS,
     TOP_N,
 )
+from charts import draw_summary_chart
 from pdf import markdown_to_pdf
 from rag import format_docs, retrieve
 from state import (
@@ -291,6 +293,8 @@ def record_evaluation(state: GraphState) -> GraphState:
 
 def route_start(state: GraphState) -> str:
     """저장된 평가를 재사용하면 분석을 건너뛰고 투자 판단부터 시작합니다."""
+    if state.get("forecasts"):
+        return "select_top"  # 저장된 수익률까지 재사용 → 보고서만 다시 생성
     if state.get("evaluations") and state["current_index"] >= len(state["companies"]):
         return "investment_judge"
     return "select_company"
@@ -634,10 +638,29 @@ def report_agent(state: GraphState) -> GraphState:
     report = get_llm().invoke(prompt).content
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    # 그래프: 통과 기업의 영역별 점수와 예상 수익률 → SUMMARY 바로 아래에 삽입
+    chart_path = draw_summary_chart(
+        state["evaluations"],
+        state["forecasts"],
+        [f["company"]["id"] for f in state["top_companies"]],
+        OUTPUT_DIR / "summary_chart.png",
+    )
+    chart_md = f"\n![통과 기업 평가 점수와 예상 수익률]({chart_path.name})\n\n"
+    # 제목 수준(#, ##)과 관계없이 "1." 장 제목 바로 앞에 넣고, 못 찾으면 REFERENCE 앞에 넣음
+    match = re.search(r"\n#{1,3}\s*1\.", report) or re.search(r"\n#{1,3}\s*REFERENCE", report)
+    if match:
+        report = report[: match.start()] + "\n" + chart_md + report[match.start() + 1 :]
+    else:
+        report = report + chart_md
+
     path = OUTPUT_DIR / f"investment_report_{date.today()}.md"
     path.write_text(report, encoding="utf-8")
     (OUTPUT_DIR / "forecasts.json").write_text(
         json.dumps(state["forecasts"], ensure_ascii=False, indent=2, default=str), encoding="utf-8"
+    )
+    (OUTPUT_DIR / "criteria.json").write_text(
+        json.dumps({k: state[k] for k in ("threshold_total", "threshold_cutoff", "relax_round")}), encoding="utf-8"
     )
     (OUTPUT_DIR / "evaluations.json").write_text(
         json.dumps(state["evaluations"], ensure_ascii=False, indent=2, default=str), encoding="utf-8"

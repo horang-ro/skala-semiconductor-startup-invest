@@ -48,7 +48,7 @@ def build_graph():
     workflow.add_conditional_edges(
         START,
         route_start,
-        {"select_company": "select_company", "investment_judge": "investment_judge"},
+        {"select_company": "select_company", "investment_judge": "investment_judge", "select_top": "select_top"},
     )
 
     # 병렬 분석 (fan-out) → 세 결과가 모두 끝나면 저장 (fan-in)

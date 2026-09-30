@@ -12,3 +12,4 @@ transformers==5.17.0
 numpy==2.5.3
 huggingface-hub==1.33.0
 torch
+matplotlib>=3.10
