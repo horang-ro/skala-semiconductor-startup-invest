@@ -125,8 +125,9 @@ python main.py --amount 1000000000 --years 5   # 30개사 전체 실행
 
 | 이름 | 역할 |
 |---|---|
-| 김해린 | |
-| 이은주 | |
-| 박준형 | |
-| 이성환 | |
-| 유희범 | |
+| 김해린 | 시장 평가 에이전트 (`market_agent`) |
+| 이은주 | 기술 평가 에이전트 (`tech_agent`) |
+| 박준형 | RAG 파이프라인 (bge-m3 임베딩, FAISS 하이브리드 검색, `rag_store/`, `rag.py`) |
+| 이성환 | 투자 판단 에이전트 (`investment_judge`, 기준 완화 루프 `relax_criteria`) |
+| 유희범 | 매출 평가 에이전트 (`revenue_agent`), 수익률 예측 (`forecast_returns`, `select_top`) |
+| 공통 | SWOT 분석 (`swot_agent`), 투자 보고서 생성 (`report_agent`), LangGraph 그래프 구성 (`graph.py`, `main.py`) |
