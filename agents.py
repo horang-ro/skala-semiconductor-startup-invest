@@ -27,6 +27,7 @@ from pdf import markdown_to_pdf
 from rag import format_docs, retrieve
 from state import (
     SWOT,
+    Amount,
     GradedItem,
     GraphState,
     MarketAssessment,
@@ -338,25 +339,56 @@ def relax_criteria(state: GraphState) -> GraphState:
     }
 
 
-def estimate_valuation(inputs: ReturnInputs) -> tuple[float | None, str]:
+UNIT_TO_USD = {"USD_M": 1e6, "USD_B": 1e9}
+UNIT_TO_KRW = {"KRW_억": 1e8, "KRW_조": 1e12}
+
+
+def number_in_text(value: float, text: str) -> bool:
+    """숫자가 자료 본문에 실제로 나오는지 확인합니다 (쉼표·소수 표기 허용)."""
+    candidates = {f"{value:g}", f"{value:,.0f}", f"{value:.1f}", f"{value:.2f}", f"{value:,.1f}"}
+    return any(c in text for c in candidates)
+
+
+def to_usd(amount: Amount, usd_krw: float, context: str) -> tuple[float | None, str]:
+    """원문 표기 금액을 코드에서 달러로 환산합니다. 자료에서 확인되지 않는 숫자는 버립니다."""
+    if amount.value is None or amount.unit == "none":
+        return None, ""
+    if not amount.quote or not number_in_text(amount.value, context):
+        return None, "자료에서 숫자 확인 실패"
+    if amount.unit in UNIT_TO_USD:
+        usd = amount.value * UNIT_TO_USD[amount.unit]
+    else:
+        usd = amount.value * UNIT_TO_KRW[amount.unit] / usd_krw
+    origin = "조사 보고서" if amount.from_report else "뉴스"
+    return usd, f"{origin}: \"{amount.quote[:80]}\""
+
+
+def estimate_valuation(resolved: dict, latest_round: str) -> tuple[float | None, str]:
     """현재 기업가치(달러)를 추정합니다.
 
-    우선순위: 공개 기업가치 → 최근 라운드 ÷ Carta 중간 희석률 → 누적 투자금 ÷ 중간 희석률.
+    우선순위: 공개 기업가치(상식 검사 통과 시) → 최근 라운드 ÷ Carta 중간 희석률 → 누적 투자금 ÷ 중간 희석률.
     (그래도 없으면 forecast_returns에서 세그먼트 중간값으로 대체)
     """
     median_dilution = statistics.median(DILUTION_BY_ROUND.values())
-    if inputs.current_valuation_usd:
-        return inputs.current_valuation_usd, "공개 기업가치"
-    if inputs.latest_round_amount_usd:
-        dilution = DILUTION_BY_ROUND.get(inputs.latest_round, median_dilution)
-        return inputs.latest_round_amount_usd / dilution, f"최근 라운드 ÷ Carta 중간 희석률 {dilution:.1%}"
-    if inputs.total_funding_usd:
-        return inputs.total_funding_usd / median_dilution, f"누적 투자금 ÷ Carta 중간 희석률 {median_dilution:.1%} (라운드 정보 없음)"
-    return None, "기업가치 추정 불가"
+    valuation, funding = resolved["valuation"], resolved["total_funding"]
+    note = ""
+    if valuation:
+        # 상식 검사: 기업가치는 누적 투자금보다 커야 하고, 100배를 넘으면 추출 오류로 봄
+        if funding and not (funding <= valuation <= funding * 100):
+            note = " (공개 기업가치 검증 실패 → 대체값 사용)"
+        else:
+            return valuation, f"공개 기업가치 [{resolved['valuation_basis']}]"
+    if resolved["round_amount"]:
+        dilution = DILUTION_BY_ROUND.get(latest_round, median_dilution)
+        return resolved["round_amount"] / dilution, f"최근 라운드 ÷ Carta 중간 희석률 {dilution:.1%}{note}"
+    if funding:
+        return funding / median_dilution, f"누적 투자금 ÷ Carta 중간 희석률 {median_dilution:.1%}{note}"
+    return None, "기업가치 추정 불가" + note
 
 
 def estimate_revenue(
     inputs: ReturnInputs,
+    resolved: dict,
     target_year: int,
     market_cagr_pct: float | None,
     current_revenue_usd: float | None = None,
@@ -366,12 +398,12 @@ def estimate_revenue(
 
     우선순위: 목표 점유율 → 목표 매출 → 현재 매출(유사 지표). 기준 연도가 이르면 시장 성장률로 보정.
     """
-    if inputs.target_share_pct and inputs.future_market_size_usd:
-        revenue = inputs.future_market_size_usd * inputs.target_share_pct / 100
+    if inputs.target_share_pct and resolved["future_market"]:
+        revenue = resolved["future_market"] * inputs.target_share_pct / 100
         base_year, method = inputs.future_market_year, "목표 시장 규모 × 목표 점유율"
-    elif inputs.target_revenue_usd:
-        revenue = inputs.target_revenue_usd
-        base_year, method = inputs.target_revenue_year, "기업 공개 목표 매출"
+    elif resolved["target_revenue"]:
+        revenue = resolved["target_revenue"]
+        base_year, method = inputs.target_revenue_year, f"기업 공개 목표 매출 [{resolved['target_revenue_basis']}]"
     elif current_revenue_usd and market_cagr_pct:
         revenue = current_revenue_usd
         base_year, method = current_revenue_year, "현재 매출 (목표 점유율·목표 매출 미공개 → 유사 지표)"
@@ -422,7 +454,11 @@ def forecast_returns(state: GraphState) -> GraphState:
         prompt = f"""{c['name_ko']}({c['name']})의 수익률 계산 입력값을 추출하세요.
 
 - 기업이 공개한 목표 시장 점유율, 목표 시장의 전망 규모(연도), 목표 매출(연도)
-- 공개된 현재 기업가치, 가장 최근 투자 라운드와 금액, 누적 투자 유치액 (원화는 1달러={usd_krw:.0f}원으로 환산)
+- 공개된 현재 기업가치, 가장 최근 투자 라운드와 금액, 누적 투자 유치액
+- 금액은 절대 환산하지 마세요. 자료에 적힌 숫자와 단위를 그대로 적고(예: "1조 원" → value 1, unit KRW_조), 그 숫자가 나온 문장을 quote에 글자 그대로 옮기세요.
+- 조사 보고서(RAG)에 값이 있으면 그 값을 쓰고, 없을 때만 뉴스를 쓰세요.
+- 기업가치가 범위(예: 8,000억~1조 원)로 적혀 있으면 큰 값을 쓰세요.
+- 다른 회사의 금액이나, 자료에 없는 금액을 적지 마세요. 없으면 value는 null, unit은 none.
 - 수주 잔고·약정은 목표 매출이 아닙니다.
 - 예상 매출의 근거가 뉴스·산업 리포트로 확인되는지 신뢰성을 판정하세요.
 - 목표 시장: {e['market']['detail']['target_market']} / 시장 규모 자료: {e['market']['detail']['market_size']}
@@ -437,8 +473,24 @@ def forecast_returns(state: GraphState) -> GraphState:
 {format_news(news)}
 """
         inputs: ReturnInputs = get_llm(ReturnInputs).invoke(prompt)
-        valuation, valuation_method = estimate_valuation(inputs)
-        extracted.append({"e": e, "inputs": inputs, "news": news, "valuation": valuation, "valuation_method": valuation_method})
+
+        # 환산과 검증은 코드에서 수행
+        context = format_docs(docs) + format_news(news)
+        resolved = {}
+        for key, amount in {
+            "valuation": inputs.current_valuation,
+            "round_amount": inputs.latest_round_amount,
+            "total_funding": inputs.total_funding,
+            "target_revenue": inputs.target_revenue,
+            "future_market": inputs.future_market_size,
+        }.items():
+            resolved[key], resolved[f"{key}_basis"] = to_usd(amount, usd_krw, context)
+
+        valuation, valuation_method = estimate_valuation(resolved, inputs.latest_round)
+        extracted.append({
+            "e": e, "inputs": inputs, "resolved": resolved, "news": news,
+            "valuation": valuation, "valuation_method": valuation_method,
+        })
 
     # 기업가치 대체값: 같은 세그먼트 통과 기업의 중간값 → 전체 중간값
     valuation_by_segment, valuation_overall = median_by_segment(
@@ -467,6 +519,7 @@ def forecast_returns(state: GraphState) -> GraphState:
         revenue_krw = e["revenue"]["detail"].get("revenue_krw_normalized")
         revenue, revenue_method = estimate_revenue(
             inputs,
+            x["resolved"],
             target_year,
             market_cagr,
             current_revenue_usd=revenue_krw / usd_krw if revenue_krw else None,

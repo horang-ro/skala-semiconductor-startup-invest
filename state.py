@@ -96,20 +96,31 @@ class RevenueFacts(BaseModel):
     sources: list[str] = Field(description="근거로 쓴 출처")
 
 
-class ReturnInputs(BaseModel):
-    """수익률 계산 입력값 추출 결과."""
+class Amount(BaseModel):
+    """자료에 적힌 금액을 원문 표기 그대로 담습니다 (환산은 코드에서 수행)."""
 
-    target_share_pct: float | None = Field(description="기업이 공개한 목표 시장 점유율(%)")
-    future_market_size_usd: float | None = Field(description="목표 시장의 전망 규모(달러)")
+    value: float | None = Field(description="원문에 적힌 숫자 그대로. 범위면 지시된 쪽 값. 없으면 null")
+    unit: Literal["KRW_억", "KRW_조", "USD_M", "USD_B", "none"] = Field(
+        description="원문 단위: 억 원=KRW_억, 조 원=KRW_조, million 달러=USD_M, billion 달러=USD_B, 없으면 none"
+    )
+    quote: str = Field(description="이 숫자가 나온 자료의 문장을 글자 그대로. 없으면 빈 문자열")
+    from_report: bool = Field(description="조사 보고서(RAG)에서 나왔으면 true, 뉴스에서 나왔으면 false")
+
+
+class ReturnInputs(BaseModel):
+    """수익률 계산 입력값 추출 결과. 금액은 환산하지 않고 원문 표기 그대로 적습니다."""
+
+    target_share_pct: float | None = Field(description="기업이 공개한 목표 시장 점유율(%). 없으면 null")
+    future_market_size: Amount = Field(description="목표 시장의 전망 규모")
     future_market_year: int | None = Field(description="시장 전망 연도")
-    target_revenue_usd: float | None = Field(description="기업이 공개한 목표 매출(달러 환산)")
+    target_revenue: Amount = Field(description="기업이 공개한 목표 매출 (수주 잔고·약정 제외)")
     target_revenue_year: int | None = Field(description="목표 매출 연도")
-    current_valuation_usd: float | None = Field(description="공개된 현재 기업가치(달러)")
+    current_valuation: Amount = Field(description="공개된 현재 기업가치. 범위로 적혀 있으면 큰 값")
     latest_round: Literal["seed", "series_a", "series_b", "series_c", "series_d", "unknown"] = Field(
         description="가장 최근 투자 라운드"
     )
-    latest_round_amount_usd: float | None = Field(description="최근 라운드 투자금(달러)")
-    total_funding_usd: float | None = Field(description="누적 투자 유치액(달러). 없으면 null")
+    latest_round_amount: Amount = Field(description="최근 라운드 투자금")
+    total_funding: Amount = Field(description="누적 투자 유치액")
     reliability: Literal["근거 확인", "일부 확인", "근거 없음"] = Field(
         description="예상 매출 근거가 뉴스·산업 리포트로 확인되는 정도"
     )
