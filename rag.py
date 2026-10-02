@@ -38,10 +38,11 @@ def retrieve(query: str, company_id: str | None = None, agent: str | None = None
         company_id: 기업 코드 (예: "DX"). 주면 해당 기업 청크만 검색
         agent: 에이전트 경로 ("technology", "market", "financial", "investment", "SWOT")
     """
-    from search import search as hybrid_search  # rag_store/search.py
-
     with _lock:
+        # macOS에서 faiss를 torch보다 먼저 불러오면 OpenMP 충돌로 프로세스가 죽으므로 모델을 먼저 로딩
         model = get_model()
+        from search import search as hybrid_search  # rag_store/search.py
+
         results = hybrid_search(DB_PATH, model, query, top_k=k, company=company_id, agent=agent)
         if not results and agent:
             # 에이전트 경로 필터로 결과가 없으면 경로 필터 없이 다시 검색

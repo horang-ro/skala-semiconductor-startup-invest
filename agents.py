@@ -79,6 +79,7 @@ GRADE_SCALE = "등급 점수(5점 척도, 0.5 단위): a=4.5~5, b=3.5~4, c=2.5~3
 
 SOURCE_RULE = """- 제공된 자료에 있는 사실만 사용하세요. 자료가 일부라도 있으면 그 범위에서 등급을 판정하고, 관련 자료가 전혀 없을 때만 none으로 판정하세요.
 - 회사 주장 수치와 제3자 검증 수치를 구분하세요.
+- 다른 회사의 제품·실적을 이 회사 것으로 쓰지 마세요. 이 회사 기술을 라이선스·인수한 회사의 제품 양산은 이 회사의 양산이 아닙니다.
 - sources에는 실제로 근거로 쓴 문서 섹션 또는 뉴스 URL만 적으세요."""
 
 
@@ -108,6 +109,7 @@ def tech_agent(state: GraphState) -> GraphState:
    a=독자 아키텍처로 경쟁 기술 대비 차별성이 매우 강함 / b=차별성 강함 / c=경쟁 기술과 유사 / d=차별성 미흡 / e=차별성 낮음
 2. manufacturability (실제 반도체로 구현·제조 가능한 수준)
    a=양산·출하 중 / b=샘플·파일럿 공급 / c=테이프아웃·첫 실리콘 / d=FPGA·시제품 / e=설계·시뮬레이션 단계
+   (양산은 자료에 양산·출하 사실이 명시된 경우만 인정합니다. 계획·예정·목표는 양산이 아닙니다.)
 3. validation (실제 silicon과 검증자료로 입증)
    a=MLPerf·독립기관 실측 등 제3자 검증 / b=주요 학회(Hot Chips, ISSCC 등) 발표 / c=고객 PoC 결과 공개 / d=회사 자체 수치만 / e=검증 자료 없음
 4. scalability (기존 시스템과 통합·확장 가능성)
@@ -132,7 +134,8 @@ def tech_agent(state: GraphState) -> GraphState:
             "score": round(sum(items.values()), 1),
             "items": items,
             "detail": result.model_dump(),
-            "sources": result.sources + [n["url"] for n in news],
+            "sources": result.sources,
+            "news": news,
         }
     }
 
@@ -167,6 +170,7 @@ entry (시장 진입성)
 시장 규모(market_size)는 채점하지 않지만 보고서에 쓰므로 수치·연도·조사기관을 함께 적으세요.
 - 자료에 연평균 성장률(CAGR)이 있으면 market_cagr_pct에 반드시 숫자로 적으세요.
 - 기준 연도와 전망 연도의 시장 규모가 있으면 size_base_*, size_future_*에 달러 금액으로 적으세요 (1 billion = 1e9).
+- 뉴스 제목·요약에 "$45 billion by 2030"처럼 시장 규모 수치가 있으면 반드시 추출하세요. 수치가 하나도 없으면 market_size에 "확인 안 됨"이라고만 적고, "뉴스 참조" 같은 표현은 쓰지 마세요.
 이 기업의 세그먼트: {segment}
 투자 회수 희망 시점: {state['investment_years']}년 후 (성장성 판단에 고려)
 
@@ -196,7 +200,8 @@ entry (시장 진입성)
             "score": round(sum(items.values()), 1),
             "items": items,
             "detail": detail,
-            "sources": result.sources + [n["url"] for n in news],
+            "sources": result.sources,
+            "news": news,
         }
     }
 
@@ -267,7 +272,8 @@ def revenue_agent(state: GraphState) -> GraphState:
             "score": points["current"] + points["growth"] + points["quality"],
             "items": {k: points[k] for k in ("current", "growth", "quality")},
             "detail": facts.model_dump() | {"revenue_krw_normalized": points["revenue_krw"]},
-            "sources": facts.sources + [n["url"] for n in news],
+            "sources": facts.sources,
+            "news": news,
         }
     }
 
@@ -346,7 +352,14 @@ UNIT_TO_KRW = {"KRW_억": 1e8, "KRW_조": 1e12}
 def number_in_text(value: float, text: str) -> bool:
     """숫자가 자료 본문에 실제로 나오는지 확인합니다 (쉼표·소수 표기 허용)."""
     candidates = {f"{value:g}", f"{value:,.0f}", f"{value:.1f}", f"{value:.2f}", f"{value:,.1f}"}
-    return any(c in text for c in candidates)
+    if any(c in text for c in candidates):
+        return True
+    # "2조 6,500억"처럼 조·억이 섞인 표기는 조 단위(2.65)와 억 단위(26,500) 값으로 바꿔 비교
+    for jo, eok in re.findall(r"(\d+)\s*조\s*([\d,]+)\s*억", text):
+        jo, eok = int(jo), int(eok.replace(",", ""))
+        if any(abs(value - v) < 1e-6 * max(v, 1) for v in (jo + eok / 10000, jo * 10000 + eok)):
+            return True
+    return False
 
 
 def to_usd(amount: Amount, usd_krw: float, context: str) -> tuple[float | None, str]:
@@ -396,12 +409,13 @@ def estimate_revenue(
 ) -> tuple[float | None, str]:
     """n년 후 예상 매출(달러)을 추정합니다.
 
-    우선순위: 목표 점유율 → 목표 매출 → 현재 매출(유사 지표). 기준 연도가 이르면 시장 성장률로 보정.
+    우선순위: 목표 점유율 → 목표 매출(올해 이후 연도만) → 현재 매출(유사 지표). 기준 연도가 이르면 시장 성장률로 보정.
     """
     if inputs.target_share_pct and resolved["future_market"]:
         revenue = resolved["future_market"] * inputs.target_share_pct / 100
         base_year, method = inputs.future_market_year, "목표 시장 규모 × 목표 점유율"
-    elif resolved["target_revenue"]:
+    elif resolved["target_revenue"] and (inputs.target_revenue_year or 0) >= date.today().year:
+        # 이미 지난 해의 전망치나 연도 없는 목표는 목표 매출로 쓰지 않음 (확정 실적도 아니므로 보수적으로 제외)
         revenue = resolved["target_revenue"]
         base_year, method = inputs.target_revenue_year, f"기업 공개 목표 매출 [{resolved['target_revenue_basis']}]"
     elif current_revenue_usd and market_cagr_pct:
@@ -554,7 +568,8 @@ def forecast_returns(state: GraphState) -> GraphState:
             "present_value_usd": pv,
             "reliability": inputs.reliability,
             "reliability_note": inputs.reliability_note,
-            "sources": inputs.sources + [n["url"] for n in x["news"]],
+            "sources": inputs.sources,
+            "news": x["news"],
         })
         roi_text = f"{roi:.0%}" if roi is not None else "산정 불가"
         print(f"  {c['name_ko']}: 수익률 {roi_text} ({revenue_method} / {valuation_method})")
@@ -599,18 +614,103 @@ def swot_agent(state: GraphState) -> GraphState:
     return {"swot": results}
 
 
-REPORT_TOC = """# SUMMARY  (1/2페이지 이내: 추천 3곳, 투자 금액, 예측 수익률, 핵심 근거)
-# 1. 평가 기준 및 고지  (평가 프레임, 최종 적용 기준·완화 횟수, 수익률 가정, 예상 매출 신뢰성)
-# 2. 기업별 분석  (추천 3곳 각각: 사업 아이디어·팀 / 기술·시장(시장 규모 포함) / 재무 요약 / 평가 점수·수익률 / SWOT·사업 리스크)
-# 3. 한계점
-# REFERENCE  (실제로 활용한 자료만. 형식: [번호] 기관·저자, 「제목」, 발행일, URL)"""
+REPORT_TOC = """# SUMMARY  (1/2페이지 이내: 추천 3곳, 투자 금액, 예측 수익률, 핵심 근거 1~2문장)
+# 1. 평가 기준 및 고지  (평가 프레임, 최종 적용 기준·완화 횟수, 수익률 계산 방법과 가정, 예상 매출 신뢰성)
+# 2. 기업별 분석  (추천 3곳 각각: 사업 아이디어·팀 / 기술 / 시장(목표 시장과 시장 규모) / 재무 요약 / 평가 점수·수익률 / SWOT / 사업 리스크(시장·기술·규제·경쟁))
+# 3. 한계점"""
+
+DOC_NAME = "AI반도체_스타트업_30사_기업평가_자료.md"
+
+
+def load_citations() -> tuple[dict, dict]:
+    """조사 문서 섹션별 원자료 인용 번호와, 인용 번호별 원자료 정보를 불러옵니다."""
+    chunks = json.loads((RAG_STORE_DIR / "data" / "chunks.json").read_text(encoding="utf-8"))["chunks"]
+    by_section = {}
+    for ch in chunks.values():
+        meta = ch["metadata"]
+        section = " > ".join(meta.get("section_path", []))
+        by_section.setdefault(section, set()).update(meta.get("citation_ids", []))
+    sources = json.loads((RAG_STORE_DIR / "data" / "sources.json").read_text(encoding="utf-8"))
+    return by_section, sources
+
+
+def news_date(published: str) -> str:
+    """RSS 발행일을 YYYY-MM-DD로 바꿉니다."""
+    from email.utils import parsedate_to_datetime
+
+    try:
+        return parsedate_to_datetime(published).strftime("%Y-%m-%d")
+    except (TypeError, ValueError):
+        return "날짜 확인 안 됨"
+
+
+def build_references(top_companies: list[dict], evaluations: dict, peers: dict) -> str:
+    """에이전트가 근거로 쓴 자료(sources)만 모아 REFERENCE 장을 만듭니다.
+
+    조사 문서 섹션은 그 섹션이 인용한 원자료로 풀어 쓰고, 뉴스는 제목·언론사·날짜를 붙입니다.
+    """
+    by_section, citations = load_citations()
+    cited_ids, news_refs = [], {}
+    for f in top_companies:
+        e = evaluations[f["company"]["id"]]
+        results = [e["tech"], e["market"], e["revenue"], f]
+        news_meta = {n["url"]: n for r in results for n in r.get("news", [])}
+        for src in (s for r in results for s in r["sources"]):
+            if src.startswith("http"):
+                if src in news_meta:  # 제공한 뉴스에 없는 URL은 근거로 인정하지 않음
+                    news_refs[src] = news_meta[src]
+            elif DOC_NAME in src and " / " in src:
+                section = src.split(" / ", 1)[1].strip()
+                for key, ids in by_section.items():
+                    if key.startswith(section):
+                        cited_ids += [i for i in sorted(ids) if i not in cited_ids]
+
+    lines = ["# REFERENCE", "", "**조사 문서 (RAG)**", "",
+             f"1. 울산캠퍼스 1반 3조 (2026). 『AI반도체 스타트업 30사 기업평가 자료』. 팀 내부 조사 문서 (docs/{DOC_NAME})"]
+    n = 1
+    originals = [i for i in cited_ids if i in citations]
+    if originals:
+        lines += ["", "**원자료 (조사 문서가 인용한 자료)**", ""]
+        for cid in originals:
+            n += 1
+            lines.append(f"{n}. [{cid}] {citations[cid]['description_raw'].replace(' 📁', '').strip()}")
+    if news_refs:
+        lines += ["", "**뉴스**", ""]
+        for url, news in news_refs.items():
+            n += 1
+            title = news["title"].rsplit(" - ", 1)[0]
+            lines.append(f"{n}. {news['source'] or '언론사 확인 안 됨'} ({news_date(news['published'])}). 「{title}」. {url}")
+
+    lines += ["", "**평가 기준·데이터**", ""]
+    n += 1
+    lines.append(f"{n}. 산업통상자원부 (2014). 『기술가치평가 실무가이드』 (부록 1 시장 평가 기준, 할인율). "
+                 "https://www.valuation.or.kr/data/%EA%B8%B0%EC%88%A0%EA%B0%80%EC%B9%98%ED%8F%89%EA%B0%80_%EC%8B%A4%EB%AC%B4%EA%B0%80%EC%9D%B4%EB%93%9C(2014).pdf")
+    if any("Carta" in f["valuation_method"] for f in top_companies):
+        n += 1
+        lines.append(f"{n}. Carta (2025). Dilution by venture round medians. https://carta.com/data/linkedin-dilution-by-venture-round-medians/")
+    n += 1
+    tickers = ", ".join(p["ticker"] for p in peers["peers"])
+    lines.append(f"{n}. Yahoo Finance ({peers['date']}). 비교기업 순이익률·PER ({tickers}). https://finance.yahoo.com")
+    return "\n".join(lines) + "\n"
 
 
 def format_money(usd: float | None, usd_krw: float) -> str:
     """달러 금액을 '달러 (원화)' 문자열로 표기합니다."""
     if usd is None:
         return "확인 안 됨"
-    return f"${usd / 1e6:,.1f}M (약 {usd * usd_krw / 1e8:,.0f}억 원)"
+    krw = usd * usd_krw
+    # 큰 금액을 "3,500M"처럼 쓰면 모델이 "3,500억 달러"로 잘못 옮기므로 B·조 단위를 씀
+    if usd >= 1e9:
+        usd_text = f"${usd / 1e9:,.2f}B"
+    elif usd >= 1e6:
+        usd_text = f"${usd / 1e6:,.1f}M"
+    else:
+        usd_text = f"${usd / 1e3:,.0f}K"
+    if krw >= 1e12:
+        krw_text = f"약 {int(krw // 1e12)}조 {round(krw % 1e12 / 1e8):,}억 원"
+    else:
+        krw_text = f"약 {krw / 1e8:,.0f}억 원"
+    return f"{usd_text} ({krw_text})"
 
 
 def format_forecast(f: dict, usd_krw: float) -> dict:
@@ -643,12 +743,11 @@ def report_agent(state: GraphState) -> GraphState:
             "company": f["company"],
             "scores": e["scores"],
             "total": e["total"],
-            "tech": e["tech"]["detail"],
-            "market": e["market"]["detail"],
-            "revenue": e["revenue"]["detail"],
-            "forecast": format_forecast(f, get_usd_krw()),
+            "tech": {k: v for k, v in e["tech"]["detail"].items() if k != "sources"},
+            "market": {k: v for k, v in e["market"]["detail"].items() if k != "sources"},
+            "revenue": {k: v for k, v in e["revenue"]["detail"].items() if k != "sources"},
+            "수익률 예측": format_forecast(f, get_usd_krw()),
             "swot": {k: v for k, v in s.items() if k != "company"},
-            "sources": sorted(set(e["tech"]["sources"] + e["market"]["sources"] + e["revenue"]["sources"] + f["sources"])),
         })
 
     criteria = {
@@ -674,13 +773,20 @@ def report_agent(state: GraphState) -> GraphState:
 
 규칙:
 - 전체 A4 5장 이내. SUMMARY는 개요가 아니라 핵심 요약이며 1/2페이지를 넘지 않게.
+- 목차의 장만 쓰세요. REFERENCE 장은 쓰지 마세요(별도로 붙입니다). 목차 밖의 맺음말·안내 문구도 쓰지 마세요.
 - 데이터에 있는 사실과 숫자만 사용하고, 없는 정보는 "확인 안 됨"으로 쓰세요.
-- 통화 환산이나 수익률을 직접 계산하지 마세요. forecast의 문자열을 글자 그대로 옮기세요.
+- 통화 환산이나 수익률을 직접 계산하지 마세요. "수익률 예측"의 문자열을 글자 그대로 옮기세요.
+- 데이터의 키 이름(forecast, detail, JSON 등)이나 이 작성 지시를 보고서에 언급하지 마세요.
+- 인력 이동은 방향(어디에서 어디로)을 데이터 문장 그대로 쓰세요.
+- 양산·제품의 주체가 이 회사가 아니면(예: 기술을 라이선스한 다른 회사) 주체를 밝혀 쓰세요.
+- "예정"이라고 적힌 일정이 이미 지난 연도라면 "(YYYY년 보도 기준 예정, 이후 확인 안 됨)"처럼 시점을 밝히세요.
 - "예상 수익률"은 (회수 금액의 현재가치 − 투자 금액) ÷ 투자 금액입니다. +는 이익, −는 손실이며 0%에 가까우면 원금 수준입니다.
+- 1장에 수익률 계산 방법을 한 줄로 적으세요: 예상 매출 × 비교기업 순이익률 × 비교기업 PER = Exit 기업가치 → × 취득 지분율 → 할인율로 현재가치 환산.
+- 시장 규모는 market_size의 수치를 쓰고, 수치가 없으면 "시장 규모 수치 확인 안 됨"이라고 쓰세요.
+- 사업 리스크는 시장·기술·규제·경쟁 4가지로 나눠 쓰고, 해당 자료가 없는 항목은 "확인 안 됨"으로 쓰세요.
 - 수익률 산정 불가 기업은 그 이유를 밝히세요.
 - 비교기업 PER·순이익률은 현재 상장사 기준이라 Exit 가치가 크게 나올 수 있음을 고지에 적으세요.
 - 예상 매출 신뢰성(근거 확인/일부 확인/근거 없음)을 기업별로 표시하세요.
-- REFERENCE에는 sources에 있는 자료만 적으세요.
 
 # 평가 기준
 {json.dumps(criteria, ensure_ascii=False, indent=2)}
@@ -689,6 +795,9 @@ def report_agent(state: GraphState) -> GraphState:
 {json.dumps(top_data, ensure_ascii=False, indent=2, default=str)}
 """
     report = get_llm().invoke(prompt).content
+    # 모델이 REFERENCE나 맺음말을 덧붙였으면 잘라 내고, REFERENCE는 코드에서 만든 목록을 붙임
+    report = re.split(r"\n#{1,3}\s*REFERENCE", report)[0]
+    report = re.sub(r"(\n\s*(---|\(.*\))\s*)+$", "", report.rstrip()) + "\n"
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -700,12 +809,13 @@ def report_agent(state: GraphState) -> GraphState:
         OUTPUT_DIR / "summary_chart.png",
     )
     chart_md = f"\n![통과 기업 평가 점수와 예상 수익률]({chart_path.name})\n\n"
-    # 제목 수준(#, ##)과 관계없이 "1." 장 제목 바로 앞에 넣고, 못 찾으면 REFERENCE 앞에 넣음
-    match = re.search(r"\n#{1,3}\s*1\.", report) or re.search(r"\n#{1,3}\s*REFERENCE", report)
+    # 제목 수준(#, ##)과 관계없이 "1." 장 제목 바로 앞에 넣고, 못 찾으면 본문 끝에 넣음
+    match = re.search(r"\n#{1,3}\s*1\.", report)
     if match:
         report = report[: match.start()] + "\n" + chart_md + report[match.start() + 1 :]
     else:
         report = report + chart_md
+    report += "\n---\n\n" + build_references(state["top_companies"], evaluations, peers)
 
     path = OUTPUT_DIR / f"investment_report_{date.today()}.md"
     path.write_text(report, encoding="utf-8")
